@@ -3,7 +3,6 @@ package chapter04;
 //	메소드의 이름도 JAVA의 규칙에 맞게 정의해 봅시다. 
 
 import java.util.Calendar;
-import java.util.Scanner;
 
 public class Member {
 
@@ -89,7 +88,6 @@ public class Member {
 	}
 	
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		
 		Member member = new Member();
 //		int year = 2000;
@@ -106,7 +104,6 @@ public class Member {
 		member.checkVaccine();
 		member.checkCheckUp();
 		
-		scanner.close();
 	}
 	
 }
