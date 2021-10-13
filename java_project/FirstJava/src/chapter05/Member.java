@@ -44,6 +44,9 @@ public class Member {
 		this.eMail = eMail;		
 	}
 	
+	// 기본생성자
+	public Member() {}
+	
 //	④ main() 메소드에서 두 가지 생성자를 이용해서 인스턴스 생성하고 출력 메소드를 통해 저장된 데이터 출력
 	public static void main(String[] args) {
 		Member member1 = new Member("학생1", "010-0000-0000", "경영학과", 4, "email@email.com", "1998.01.01.", "주소");
