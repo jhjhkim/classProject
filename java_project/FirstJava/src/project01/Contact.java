@@ -92,7 +92,7 @@ public class Contact {
 	
 	// 전화번호 입력 메소드
 	public String insertPhone() {
-		System.out.println("전화번호를 입력해주세요.");
+		System.out.println("전화번호를 입력해주세요. (예. 010-0000-0000)");
 		System.out.print("> ");
 		String phoneNumber = new String(scanner.nextLine());
 		return phoneNumber;
@@ -100,7 +100,7 @@ public class Contact {
 	
 	// 이메일 입력 메소드
 	public String insertEMail() {
-		System.out.println("이메일 주소를 입력해주세요.");
+		System.out.println("이메일 주소를 입력해주세요. (예. email@email.com)");
 		System.out.print("> ");
 		String eMail = new String(scanner.nextLine());
 		return eMail;
@@ -116,7 +116,7 @@ public class Contact {
 	
 	// 생일 입력 메소드
 	public String insertBirthDay() {
-		System.out.println("생일을 입력해주세요.");
+		System.out.println("생일을 입력해주세요. (예. 1900-01-01)");
 		System.out.print("> ");
 		String birthDay = new String(scanner.nextLine());
 		return birthDay;
@@ -149,11 +149,11 @@ public class Contact {
 		System.out.print("> ");
 		name = new String(scanner.nextLine());
 		
-		System.out.println("수정할 전화번호를 입력해주세요.");
+		System.out.println("수정할 전화번호를 입력해주세요. (예. 010-0000-0000)");
 		System.out.print("> ");
 		phoneNumber = new String(scanner.nextLine());
 		
-		System.out.println("수정할 이메일 주소를 입력해주세요.");
+		System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)");
 		System.out.print("> ");
 		eMail = new String(scanner.nextLine());
 		
@@ -161,7 +161,7 @@ public class Contact {
 		System.out.print("> ");
 		address = new String(scanner.nextLine());
 		
-		System.out.println("수정할 생일을 입력해주세요.");
+		System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)");
 		System.out.print("> ");
 		birthDay = new String(scanner.nextLine());
 		
