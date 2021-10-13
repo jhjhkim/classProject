@@ -11,7 +11,7 @@ public class Contact {
 	private String birthDay;	// 생일
 	private String group;		// 그룹
 	
-	static Scanner scanner;
+	static Scanner scanner;		// 사용자의 입력을 받기 위한 scanner 클래스 변수 선언
 	
 	// getter 와 setter 메소드
 	public String getName() {
@@ -171,7 +171,7 @@ public class Contact {
 	}
 	
 	public static void main(String[] args) {
-		scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);	// scanner 사용을 위해 초기화
 		
 		// 생성자 호출
 		Contact cont = new Contact();
@@ -184,7 +184,7 @@ public class Contact {
 		System.out.println("생일: " + cont.getBirthDay());
 		System.out.println("그룹: " + cont.getGroup());
 		
-		// 정보 출력 메소드 호출
+		// 정보 출력 메소드 실행
 		cont.printInfo();
 		
 		// 변수의 값을 바꾸는 setter 메소드를 이용하여 데이터 수정
@@ -211,6 +211,6 @@ public class Contact {
 		// 정보 출력 메소드 실행
 		cont.printInfo();
 		
-		scanner.close();
+		scanner.close();	// scanner 사용 종료
 	}
 }
