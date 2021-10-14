@@ -77,7 +77,7 @@ public class Contact {
 	
 	// 정보 출력 메소드
 	public void printInfo() {
-		System.out.println("\n=====================================");
+		System.out.println("=====================================");
 		System.out.println("이름: " + this.getName());
 		System.out.println("전화번호: " + this.getPhoneNumber());
 		System.out.println("이메일주소: " + this.geteMail());
