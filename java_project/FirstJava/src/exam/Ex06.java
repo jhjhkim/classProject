@@ -7,7 +7,7 @@ public class Ex06 {
 		// 그리고 이 문자열을 역순으로 다시 출력하는 프로그램을 작성.
 		String str = "ABCDEFGHIJKLMN";
 		StringBuilder strBuf = new StringBuilder(str);
-		System.out.println(strBuf);
+		System.out.println(str);
 		System.out.println(strBuf.reverse());
 		
 		System.out.println("------------------------");
