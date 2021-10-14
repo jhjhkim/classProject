@@ -58,7 +58,7 @@ public class Array {
 		
 		int[] arr = new int[ARRAY_SIZE];
 		
-		for(int i = 0; i < ARRAY_SIZE; i++) {
+		for(int i = 0; i < arr.length; i++) {
 			System.out.println((i+1) + "번째 정수를 입력해주세요.");
 			System.out.print("> ");
 			arr[i] = Integer.parseInt(scanner.nextLine());
