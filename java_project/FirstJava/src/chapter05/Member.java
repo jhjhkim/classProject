@@ -23,7 +23,11 @@ public class Member {
 		System.out.println("이메일: " + eMail);
 		System.out.println("생일: " + birthDay);
 		System.out.println("주소: " + address);
+		System.out.println("--------------------------\n");
 	}
+	
+	// 기본생성자
+	public Member() {}	
 	
 //	③ 모든 정보를 저장하도록 하는 생성자와 생일과 주소는 저장하지 않을 수 있는 생성자를 정의
 	public Member(String name, String phoneNumber, String major, int grade, String eMail, String birthDay, String address) {
@@ -41,11 +45,10 @@ public class Member {
 		this.phoneNumber = phoneNumber;
 		this.major = major;
 		this.grade = grade;
-		this.eMail = eMail;		
+		this.eMail = eMail;
+		this.birthDay = "";
+		this.address = "";
 	}
-	
-	// 기본생성자
-	public Member() {}
 	
 //	④ main() 메소드에서 두 가지 생성자를 이용해서 인스턴스 생성하고 출력 메소드를 통해 저장된 데이터 출력
 	public static void main(String[] args) {
@@ -53,7 +56,6 @@ public class Member {
 		Member member2 = new Member("학생2", "010-0000-1111", "수학과", 2, "email2@email.com");
 		
 		member1.printInfo();
-		System.out.println("--------------------------\n");
 		member2.printInfo();
 	}
 }
