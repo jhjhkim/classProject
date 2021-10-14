@@ -1,5 +1,7 @@
 package project01;
 
+import java.util.Scanner;
+
 public class Contact {
 
 	private String name;		// 이름
@@ -73,5 +75,43 @@ public class Contact {
 		this.group = group;
 	}
 	
-
+	// 정보 출력 메소드
+	public void printInfo() {
+		System.out.println("\n=====================================");
+		System.out.println("이름: " + this.getName());
+		System.out.println("전화번호: " + this.getPhoneNumber());
+		System.out.println("이메일주소: " + this.geteMail());
+		System.out.println("주소: " + this.getAddress());
+		System.out.println("생일: " + this.getBirthDay());
+		System.out.println("그룹: " + this.getGroup());
+		System.out.println("=====================================\n");
+	}
+	
+	// 변수값을 바꾸는 setter 메소드를 이용한 정보 수정 메소드
+	public void updateInfo(Scanner scanner) {
+		System.out.println("정보를 수정합니다.\n");
+		System.out.println("수정할 이름을 입력해주세요.");
+		System.out.print("> ");
+		this.setName(scanner.nextLine());
+		
+		System.out.println("수정할 전화번호를 입력해주세요. (예. 010-0000-0000)");
+		System.out.print("> ");
+		this.setPhoneNumber(scanner.nextLine());
+		
+		System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)");
+		System.out.print("> ");
+		this.seteMail(scanner.nextLine());
+		
+		System.out.println("수정할 주소를 입력해주세요.");
+		System.out.print("> ");
+		this.setAddress(scanner.nextLine());
+		
+		System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)");
+		System.out.print("> ");
+		this.setBirthDay(scanner.nextLine());
+		
+		System.out.println("수정할 그룹을 입력해주세요.");
+		System.out.print("> ");
+		this.setGroup(scanner.nextLine());
+	}
 }
