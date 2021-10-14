@@ -4,52 +4,8 @@ import java.util.Scanner;
 
 public class ContactMain {
 
-	Scanner scanner;	// 사용자의 입력을 받기 위한 scanner 클래스 변수 선언
-	
-	// 정보 출력 메소드
-	public void printInfo(Contact c) {
-		System.out.println("\n=====================================");
-		System.out.println("이름: " + c.getName());
-		System.out.println("전화번호: " + c.getPhoneNumber());
-		System.out.println("이메일주소: " + c.geteMail());
-		System.out.println("주소: " + c.getAddress());
-		System.out.println("생일: " + c.getBirthDay());
-		System.out.println("그룹: " + c.getGroup());
-		System.out.println("=====================================\n");
-	}
-	
-	// 변수값을 바꾸는 setter 메소드를 이용한 정보 수정 메소드
-	public void updateInfo(Scanner scanner, Contact c) {
-		System.out.println("정보를 수정합니다.\n");
-		System.out.println("수정할 이름을 입력해주세요.");
-		System.out.print("> ");
-		c.setName(scanner.nextLine());
-		
-		System.out.println("수정할 전화번호를 입력해주세요. (예. 010-0000-0000)");
-		System.out.print("> ");
-		c.setPhoneNumber(scanner.nextLine());
-		
-		System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)");
-		System.out.print("> ");
-		c.seteMail(scanner.nextLine());
-		
-		System.out.println("수정할 주소를 입력해주세요.");
-		System.out.print("> ");
-		c.setAddress(scanner.nextLine());
-		
-		System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)");
-		System.out.print("> ");
-		c.setBirthDay(scanner.nextLine());
-		
-		System.out.println("수정할 그룹을 입력해주세요.");
-		System.out.print("> ");
-		c.setGroup(scanner.nextLine());
-	}
-	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);	// scanner 사용을 위해 초기화
-		
-		ContactMain main = new ContactMain();
 		
 		// 생성자 호출
 		Contact cont = new Contact();
@@ -90,13 +46,13 @@ public class ContactMain {
 		System.out.println("그룹: " + cont.getGroup());
 		
 		// 정보 출력 메소드 실행
-		main.printInfo(cont);
+		cont.printInfo();
 		
 		// 정보 수정 메소드 실행
-		main.updateInfo(scanner, cont);
+		cont.updateInfo(scanner);
 		
 		// 정보 출력 메소드 실행
-		main.printInfo(cont);
+		cont.printInfo();
 		
 		scanner.close();	// scanner 사용 종료
 	}
