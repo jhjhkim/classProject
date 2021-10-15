@@ -12,9 +12,9 @@ public class ArrayTest4 {
 		for(int i = 0; i < score.length; i++) {
 			for(int j = 0; j < score[i].length; j++) {
 				// 0.0 <= Math.random() < 1.0
-				// 0.0 <= Math.random() * 50 < 50.0
-				// 50.0 <= Math.random() * 50 + 50 < 100.0
-				double num = Math.random() * 50 + 50;
+				// 0.0 <= Math.random() * 51 < 51.0
+				// 50.0 <= Math.random() * 51 + 50 < 101.0
+				int num = (int)(Math.random() * 51) + 50;
 				score[i][j] = (int)num;
 			}
 		}
