@@ -15,7 +15,7 @@ public class ArrayTest4 {
 				// 0.0 <= Math.random() * 51 < 51.0
 				// 50.0 <= Math.random() * 51 + 50 < 101.0
 				int num = (int)(Math.random() * 51) + 50;
-				score[i][j] = (int)num;
+				score[i][j] = num;
 			}
 		}
 		
