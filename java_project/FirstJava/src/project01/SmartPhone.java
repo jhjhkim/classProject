@@ -8,82 +8,127 @@ import java.util.Scanner;
 
 public class SmartPhone {
 	// 변수와 상수 선언
-	Contact[] array;
 	final int ARRAY_SIZE = 10;
+	public static final Scanner scanner = new Scanner(System.in);
+	private Contact[] array;
+	private int numOfContact;
 	
 	// 생성자
 	public SmartPhone() {
 		array = new Contact[ARRAY_SIZE];
+		numOfContact = 0;
 	}
 	
-	
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		
-		SmartPhone smartPhone = new SmartPhone();
-		
-		for(int i = 0; i < smartPhone.array.length; i++) {
-			System.out.println("===== " + (i+1) + "번째 입력 =====");
-			smartPhone.add(i, scanner);
-		}
-		
-		// 배열의 모든 요소를 출력합니다.
-		System.out.println("배열의 각 요소를 출력합니다.");
-		for(int i = 0; i < smartPhone.array.length; i++) {
-			smartPhone.array[i].printInfo();
-		}
-		
-		// 배열의 모든 요소를 검색합니다.
-		
-		// 배열의 요소를 삭제해봅시다.
-		
-		// 배열의 요소를 수정해봅시다.
-		
-		scanner.close();
+	public SmartPhone(int size) {
+		array = new Contact[size];
+		numOfContact = 0;
 	}
 	
+	// 메뉴를 출력하는 메소드
+	public void showMenu() {
+		System.out.println("\t연락처 관리 프로그램");
+		System.out.println("-------------------------------------");
+		System.out.println("1. 연락처 신규 등록");
+		System.out.println("2. 연락처 전체 보기");
+		System.out.println("3. 연락처 검색");
+		System.out.println("4. 연락처 삭제");
+		System.out.println("5. 연락처 수정");
+		System.out.println("6. 프로그램 종료");
+		System.out.println("-------------------------------------");
+		System.out.println("메뉴의 번호를 입력해주세요. >>>");
+	}
 	
-	// 새로운 연락처를 array의 i번 인덱스에 저장하는 메소드
-	public void add(int i, Scanner scanner) {
-		Contact c = new Contact();
+	// 1. 신규 등록 : 새로운 연락처를 입력받아 배열에 저장하는 메소드
+	public void insert() {
+		System.out.println("연락처 정보 입력을 시작합니다.");
 		
 		System.out.println("이름을 입력해주세요.");
 		System.out.print("> ");
-		c.setName(scanner.nextLine());
+		String name = scanner.nextLine();
 		
 		System.out.println("전화번호를 입력해주세요. (예. 010-0000-0000)");
 		System.out.print("> ");
-		c.setPhoneNumber(scanner.nextLine());
+		String phoneNumber = scanner.nextLine();
 		
 		System.out.println("이메일 주소를 입력해주세요. (예. email@email.com)");
 		System.out.print("> ");
-		c.seteMail(scanner.nextLine());
+		String eMail = scanner.nextLine();
 		
 		System.out.println("주소를 입력해주세요.");
 		System.out.print("> ");
-		c.setAddress(scanner.nextLine());
+		String address = scanner.nextLine();
 		
 		System.out.println("생일을 입력해주세요. (예. 1900-01-01)");
 		System.out.print("> ");
-		c.setBirthDay(scanner.nextLine());
+		String birthday = scanner.nextLine();
 		
 		System.out.println("그룹을 입력해주세요.");
 		System.out.print("> ");
-		c.setGroup(scanner.nextLine());
+		String group = scanner.nextLine();
 		
-		array[i] = c;
+		array[numOfContact++] = new Contact(name, phoneNumber, eMail, address, birthday, group);
+		System.out.println("새로운 연락처를 입력했습니다.");
+		
 	}
 	
-	// i번 인덱스에 저장된 연락처 c를 수정하는 메소드
-	public void update(int i, Scanner scanner) {
-		Contact c = new Contact();
-		c.setName(array[i].getName());
-		c.setPhoneNumber(array[i].getPhoneNumber());
-		c.seteMail(array[i].geteMail());
-		c.setAddress(array[i].getAddress());
-		c.setBirthDay(array[i].getBirthDay());
-		c.setGroup(array[i].getGroup());
-		
-		c.updateInfo(scanner);
+	// 2. 연락처 전체 출력
+	public void printList() {
+		System.out.println("연락처 전체 목록");
+		System.out.println("-------------------------------------");
+		for(int i = 0; i < numOfContact; i++) {
+			array[i].printInfo();
+			System.out.println("-------------------------------------");
+		}
 	}
+	
+	// 이름을 통해 해당 이름이 배열의 몇번 인덱스에 있는지 찾는 메소드
+	private int searchIndex(String name) {
+		int index = -1;
+		for(int i = 0; i < numOfContact; i++) {
+			if(array[i].getName().equals(name)) {
+				index = i;
+			}
+		}
+		return index;
+	}
+	
+	// 3. 연락처 검색
+	public void searchContact() {
+		System.out.println("검색할 이름을 입력하세요.");
+		String name = scanner.nextLine();
+		int index = searchIndex(name);
+		if(index != -1) {
+			array[searchIndex(name)].printInfo();
+		} else {
+			System.out.println("입력하신 이름이 존재하지 않습니다.");
+		}
+	}
+	
+//	// 변수값을 바꾸는 setter 메소드를 이용한 정보 수정 메소드
+//	public void updateInfo() {
+//		System.out.println("정보를 수정합니다.\n");
+//		System.out.println("수정할 이름을 입력해주세요.");
+//		System.out.print("> ");
+//		this.setName(scanner.nextLine());
+//		
+//		System.out.println("수정할 전화번호를 입력해주세요. (예. 010-0000-0000)");
+//		System.out.print("> ");
+//		this.setPhoneNumber(scanner.nextLine());
+//		
+//		System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)");
+//		System.out.print("> ");
+//		this.seteMail(scanner.nextLine());
+//		
+//		System.out.println("수정할 주소를 입력해주세요.");
+//		System.out.print("> ");
+//		this.setAddress(scanner.nextLine());
+//		
+//		System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)");
+//		System.out.print("> ");
+//		this.setBirthday(scanner.nextLine());
+//		
+//		System.out.println("수정할 그룹을 입력해주세요.");
+//		System.out.print("> ");
+//		this.setGroup(scanner.nextLine());
+//	}
 }
