@@ -19,15 +19,32 @@ public class ArrayTest4 {
 			}
 		}
 		
+		
 		// 배열 출력
 		System.out.println("\t국어\t영어\t수학");
 		System.out.println("-----------------------------");
-		for(int i = 0; i < score.length; i++) {
-			System.out.print("\t");
-			for(int j = 0; j < score[i].length; j++) {
-				System.out.print(score[i][j] + "\t");
+		
+//		for(int i = 0; i < score.length; i++) {
+//			System.out.print("\t");
+//			for(int j = 0; j < score[i].length; j++) {
+//				System.out.print(score[i][j] + "\t");
+//			}
+//			System.out.println();
+//		}
+		
+		// for-each문을 이용한 배열 출력
+		for(int[] arr : score) {
+			
+			// 과목 3개의 총합
+			int scoreSum = 0;
+			
+			for(int n : arr) {
+				System.out.print("\t" + n);
+				scoreSum += n;
 			}
-			System.out.println();
+			
+			// 개인별 총점과 평균 출력
+			System.out.println("\t" + scoreSum + "\t" + ((float)scoreSum / arr.length));
 		}
 		
 		System.out.println("-----------------------------");
@@ -37,16 +54,28 @@ public class ArrayTest4 {
 		int totalEng = 0;
 		int totalMath = 0;
 		
-		for(int i = 0; i < score.length; i++) {
-			totalKor += score[i][0];
-		}
+//		for(int i = 0; i < score.length; i++) {
+//			totalKor += score[i][0];
+//		}
+//		
+//		for(int i = 0; i < score.length; i++) {
+//			totalEng += score[i][1];
+//		}
+//		
+//		for(int i = 0; i < score.length; i++) {
+//			totalMath += score[i][2];
+//		}
 		
 		for(int i = 0; i < score.length; i++) {
-			totalEng += score[i][1];
-		}
-		
-		for(int i = 0; i < score.length; i++) {
-			totalMath += score[i][2];
+			for(int j = 0; j < score[i].length; j++) {
+				if(j == 0) {
+					totalKor += score[i][j];
+				} else if(j == 1) {
+					totalEng += score[i][j];
+				} else if(j == 2) {
+					totalMath += score[i][j];
+				}
+			}
 		}
 		
 		// 총점 출력하기
