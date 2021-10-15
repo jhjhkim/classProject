@@ -62,7 +62,6 @@ public class Student {
 	}
 	
 	// 학생의 점수와 총점, 평균을 출력하는 메소드
-	@Override
 	public String toString() {
 		return name + "\t" + scoreKor + "\t" + scoreEng + "\t" + scoreMath + "\t"
 				+ getSum() + "\t" + getAvg();
