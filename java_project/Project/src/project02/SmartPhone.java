@@ -72,7 +72,7 @@ public class SmartPhone {
 			System.out.println("새로운 연락처를 입력했습니다.");
 			
 		} else {
-			System.out.println("입력 가능한 개수를 초과했습니다.");
+			System.out.println("입력 가능한 개수를 초과했습니다. " + ARRAY_SIZE + "개의 연락처를 등록할 수 있습니다.");
 		}
 	}
 
@@ -189,32 +189,5 @@ public class SmartPhone {
 			System.out.println("입력하신 이름이 존재하지 않습니다.");
 		}
 	}
-
-//	// 변수값을 바꾸는 setter 메소드를 이용한 정보 수정 메소드
-//	public void updateInfo() {
-//		System.out.println("정보를 수정합니다.\n");
-//		System.out.println("수정할 이름을 입력해주세요.");
-//		System.out.print("> ");
-//		this.setName(scanner.nextLine());
-//		
-//		System.out.println("수정할 전화번호를 입력해주세요. (예. 010-0000-0000)");
-//		System.out.print("> ");
-//		this.setPhoneNumber(scanner.nextLine());
-//		
-//		System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)");
-//		System.out.print("> ");
-//		this.seteMail(scanner.nextLine());
-//		
-//		System.out.println("수정할 주소를 입력해주세요.");
-//		System.out.print("> ");
-//		this.setAddress(scanner.nextLine());
-//		
-//		System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)");
-//		System.out.print("> ");
-//		this.setBirthday(scanner.nextLine());
-//		
-//		System.out.println("수정할 그룹을 입력해주세요.");
-//		System.out.print("> ");
-//		this.setGroup(scanner.nextLine());
-//	}
+	
 }
