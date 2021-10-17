@@ -9,6 +9,21 @@ public class Contact {
 	private String birthday;	// 생일
 	private String group;		// 그룹
 	
+	// 기본 생성자
+	public Contact() {
+		
+	}
+
+	// 매개변수 있는 생성자
+	public Contact(String name, String phoneNumber, String eMail, String address, String birthday, String group) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.eMail = eMail;
+		this.address = address;
+		this.birthday = birthday;
+		this.group = group;
+	}
+	
 	// getter 와 setter 메소드
 	public String getName() {
 		return name;
@@ -55,21 +70,6 @@ public class Contact {
 	}
 	
 	public void setGroup(String group) {
-		this.group = group;
-	}
-	
-	// 기본 생성자
-	public Contact() {
-		
-	}
-
-	// 매개변수 있는 생성자
-	public Contact(String name, String phoneNumber, String eMail, String address, String birthday, String group) {
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.eMail = eMail;
-		this.address = address;
-		this.birthday = birthday;
 		this.group = group;
 	}
 	
