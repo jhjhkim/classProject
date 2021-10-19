@@ -29,8 +29,6 @@ public class Contact {
 		this.group = group;
 	}
 	
-	
-	
 	public String getName() {
 		return name;
 	}
@@ -70,7 +68,7 @@ public class Contact {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-
+	
 	public String getGroup() {
 		return group;
 	}
@@ -89,7 +87,8 @@ public class Contact {
 	}
 	
 	public void showBasicInfo() {
-		System.out.println("이름: " + this.name + "\t" + "전화번호: " + this.phoneNumber);
+		System.out.println("이름: " + this.name);
+		System.out.println("전화번호: " + this.phoneNumber);
 	}
 	
 }
