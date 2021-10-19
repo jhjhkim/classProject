@@ -1,4 +1,4 @@
-package exam;
+package chapter07.person;
 
 public class Female extends Person {
 
