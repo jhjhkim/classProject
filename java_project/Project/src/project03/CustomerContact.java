@@ -48,6 +48,7 @@ public class CustomerContact extends Contact {
 		this.rank = rank;
 	}
 	
+	@Override
 	public void showInfo() {
 		super.showInfo();
 		System.out.println("거래처: " + this.customerName);
@@ -55,6 +56,7 @@ public class CustomerContact extends Contact {
 		System.out.println("직급: " + this.rank);
 	}
 	
+	@Override
 	public void showBasicInfo() {
 		System.out.print("[" + this.customerName + "] ");
 		super.showBasicInfo();
