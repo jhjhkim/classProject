@@ -3,8 +3,8 @@ package project03;
 public class CustomerContact extends Contact {
 
 	private String customerName;	// 거래처 이름
-	private String item;		// 거래품목
-	private String rank;		// 직급
+	private String item;			// 거래품목
+	private String rank;			// 직급
 	
 	public CustomerContact() {
 		super();
@@ -53,8 +53,8 @@ public class CustomerContact extends Contact {
 	}
 	
 	public void showBasicInfo() {
+		System.out.print("[" + this.customerName + "] ");
 		super.showBasicInfo();
-		System.out.println("거래처: " + this.customerName);
 	}
 	
 }
