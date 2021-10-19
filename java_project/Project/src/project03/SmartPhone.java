@@ -2,6 +2,8 @@ package project03;
 
 import java.util.Scanner;
 
+// 3.SmartPhone 클래스의 배열을 다형성의 특징을 이용해서 
+// 상위 타입의 배열을 생성해서 하위 클래스의 인스턴스를 저장하는 형태로 프로그램은 작성해봅시다.
 public class SmartPhone {
 
 	Contact[] array;
