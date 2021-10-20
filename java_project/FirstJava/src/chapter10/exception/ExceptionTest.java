@@ -39,6 +39,9 @@ public class ExceptionTest {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		
 	}
