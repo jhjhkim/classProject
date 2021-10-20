@@ -1,19 +1,25 @@
 package chapter06.score;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ScoreManager {
 	// 배열을 가지고 있고,
 	// 배열의 요소를 추가, 검색, 삭제할 수 있는 기능을 가지는 클래스
 	// static인 이유: 스캐너를 하나만 만들기 위해!
+	
+	// 2021.10.20. 배열을 ArrayList로 변경
+	
 	public static final Scanner sc = new Scanner(System.in);
 	
-	private Student[] score;
-	private int numOfStudent;
+	// private Student[] score;
+	private ArrayList<Student> score;
+	// private int numOfStudent;
 	
 	public ScoreManager(int size) {
-		score = new Student[size];
-		numOfStudent = 0;
+		// score = new Student[size];
+		score = new ArrayList<Student>(size);
+		// numOfStudent = 0;
 	}
 	
 	public ScoreManager() {
@@ -27,16 +33,18 @@ public class ScoreManager {
 		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
 		System.out.println("-------------------------------------");
 		
-		for(int i = 0; i < numOfStudent; i++) {
-			System.out.println(score[i]);
+		for(Student s : score) {
+			System.out.println(s);
 		}
 			
 		System.out.println("-------------------------------------");
 	}
 
 	// 데이터 추가 : 배열의 요소로 추가 -> Student 타입의 참조값
+	// List에 요소 추가
 	public void insertScore(Student s) {
-		score[numOfStudent++] = s;
+		score.add(s);
+		// score[numOfStudent++] = s;
 		// score[numOfStudent] = s;
 		// numOfStudent++;
 	}
@@ -50,7 +58,7 @@ public class ScoreManager {
 		int index = searchIndex(name);
 		
 		if(index != -1) {
-			System.out.println(score[index]);
+			System.out.println(score.get(index));
 		} else {
 			System.out.println("검색하신 이름의 데이터가 존재하지 않습니다.");
 		}
@@ -75,11 +83,14 @@ public class ScoreManager {
 		int index = searchIndex(name);
 		
 		if(index != -1) {
+			
 			// 시프트 : 참조값을 지운다 -> 정보 삭제
-			for(int i = index; i < numOfStudent - 1; i++) {
-				score[i] = score[i+1];
-			}
-			numOfStudent--;
+//			for(int i = index; i < score.size() - 1; i++) {
+//				score[i] = score[i+1];
+//			}
+//			numOfStudent--;
+			
+			score.remove(index);
 			System.out.println("데이터가 삭제되었습니다.");
 		} else {
 			System.out.println("입력하신 이름의 데이터가 존재하지 않습니다.");
@@ -103,8 +114,8 @@ public class ScoreManager {
 	private int searchIndex(String name) {
 		int index = -1;
 		
-		for(int i = 0; i < numOfStudent; i++) {
-			if(score[i].getName().equals(name)) {
+		for(int i = 0; i < score.size(); i++) {
+			if(score.get(i).getName().equals(name)) {
 				index = i;
 				break;		// 반복문에서 벗어날 수 있는 구문
 			}
