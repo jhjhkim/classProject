@@ -107,8 +107,8 @@ public class FootballMain {
 		System.out.println("entrySet() 을 이용한 출력");
 		
 		// entrySet(): (key, value) 형식 그대로 데이터를 가져오는 메소드
-		for(Map.Entry<Integer, FootballPlayer> e : map.entrySet()) {
-			System.out.println(e);
+		for(Map.Entry<Integer, FootballPlayer> p : map.entrySet()) {
+			System.out.println(p);
 		}
 	}
 
