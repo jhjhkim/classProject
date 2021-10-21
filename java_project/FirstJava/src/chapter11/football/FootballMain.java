@@ -51,6 +51,8 @@ public class FootballMain {
 		// player1과 팀, 이름, 나이가 같은 선수를 추가할 때	
 		hashSet.add(new FootballPlayer("ADAMS", 10, "England", 20));
 		
+		// HashSet에 데이터 저장시 중복 체크: hashCode() 비교 -> 같다면 -> equals()
+		
 		System.out.println("추가 후: " + hashSet.size());
 		
 		Iterator<FootballPlayer> itr = hashSet.iterator();
