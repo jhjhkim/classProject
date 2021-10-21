@@ -13,6 +13,7 @@ public class ArrayListTest {
 		// list = new ArrayList<Integer>();
 		list = new ArrayList<>();
 		
+		// 상위 타입으로 생성 가능하다 (다형성)
 		List<Integer> list2 = new ArrayList<Integer>();
 		
 		// 데이터(인스턴스) 저장 : add(E e)
@@ -40,11 +41,14 @@ public class ArrayListTest {
 		
 		System.out.println("-----------------------");
 		
-		// 정렬자 Iterator, 순서가 없는 set 등의 컬렉션을 쓸 때
-		// 정렬자를 이용한 전체 출력
+		// 반복자 Iterator, 순서가 없는 set 등의 컬렉션을 쓸 때
+		// 반복자를 이용한 전체 출력
 		Iterator<Integer> itr = list.iterator();
 		
+		// boolean hasNext() : 다음번 요소가 존재하면 true 반환
 		while(itr.hasNext()) {
+			
+			// E next() : 다음번 요소 반환
 			Integer i = itr.next();
 			System.out.println(i);
 		}
