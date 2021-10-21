@@ -24,7 +24,7 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 		boolean result = false;
 		
 		FootballPlayer p = (FootballPlayer)o;
-		if(this.team == p.team && this.name == p.name && this.age == p.age) {
+		if(this.team.equals(p.team) && this.name.contentEquals(p.name) && this.age == p.age) {
 			result = true;
 		}
 		return result;
