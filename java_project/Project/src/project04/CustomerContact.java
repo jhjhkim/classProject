@@ -7,21 +7,21 @@ public class CustomerContact extends Contact {
 
 	private String customerName;	// 거래처 이름
 	private String item;			// 거래품목
-	private String rank;			// 직급
+	private String job;			// 직급
 	
 	public CustomerContact() {
 		super();
 		this.customerName = "";
 		this.item = "";
-		this.rank = "";
+		this.job = "";
 	}
 	
 	public CustomerContact(String name, String phoneNumber, String eMail, String address, String birthday, String group,
-						String customerName, String item, String rank) {
+						String customerName, String item, String job) {
 		super(name, phoneNumber, eMail, address, birthday, group);
 		this.customerName = customerName;
 		this.item = item;
-		this.rank = rank;
+		this.job = job;
 	}
 
 	public String getCustomerName() {
@@ -40,27 +40,25 @@ public class CustomerContact extends Contact {
 		this.item = item;
 	}
 
-	public String getRank() {
-		return rank;
+	public String getJob() {
+		return job;
 	}
 
-	public void setRank(String rank) {
-		this.rank = rank;
+	public void setJob(String job) {
+		this.job = job;
 	}
 	
 	@Override
 	public void showData() {
 		super.showData();
-		System.out.println("거래처: " + this.customerName);
-		System.out.println("품목: " + this.item);
-		System.out.println("직급: " + this.rank);
+		System.out.println("거래처: " + customerName);
+		System.out.println("품목: " + item);
+		System.out.println("직급: " + job);
 	}
 	
 	@Override
-	public void showBasicInfo() {
-		System.out.print("[" + this.customerName + "] ");
-		System.out.println("이름: " + super.getName());
-		System.out.println("전화번호: " + super.getPhoneNumber());
+	public void showBasicData() {
+		System.out.println("[" + customerName + "] " + getName());
 	}
 	
 }

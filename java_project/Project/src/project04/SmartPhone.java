@@ -6,31 +6,31 @@ import java.util.Scanner;
 // 상위 타입의 배열을 생성해서 하위 클래스의 인스턴스를 저장하는 형태로 프로그램을 작성해봅시다.
 public class SmartPhone {
 
-	Contact[] array;
+	Contact[] contacts;
 	int numOfContact;
-	final static int ARRAY_SIZE = 10; // 기본 배열 길이
+	final static int CONTACTS_SIZE = 10; // 기본 배열 길이
 	public static Scanner sc = new Scanner(System.in);
 	
 	// 배열의 길이를 파라미터로 갖는 생성자
 	public SmartPhone(int size) {
-		array = new Contact[size];
+		contacts = new Contact[size];
 		numOfContact = 0;
 	}
 		
 	// 기본 생성자
 	public SmartPhone() {
-		this(ARRAY_SIZE);
+		this(CONTACTS_SIZE);
 	}
 
 	// 연락처 배열에 넣는 메소드
 	public void add(Contact c) {
-		array[numOfContact++] = c;
+		contacts[numOfContact++] = c;
 	}
 	
 	// 연락처 등록 메소드
 	public void addContact(int select) {
 
-		if (numOfContact < ARRAY_SIZE) {
+		if (numOfContact < CONTACTS_SIZE) {
 
 			System.out.println("연락처 정보 입력을 시작합니다.");
 
@@ -60,17 +60,17 @@ public class SmartPhone {
 				
 				System.out.println("회사 이름을 입력해주세요.");
 				System.out.print("> ");
-				String company = sc.nextLine();
+				String companyName = sc.nextLine();
 				
 				System.out.println("부서 이름을 입력해주세요.");
 				System.out.print("> ");
-				String team = sc.nextLine();
+				String teamName = sc.nextLine();
 				
 				System.out.println("직급을 입력해주세요.");
 				System.out.print("> ");
-				String rank = sc.nextLine();
+				String job = sc.nextLine();
 				
-				add(new CompanyContact(name, phoneNumber, eMail, address, birthday, group, company, team, rank));
+				add(new CompanyContact(name, phoneNumber, eMail, address, birthday, group, companyName, teamName, job));
 
 			} else if(select == 2) {	
 				// 거래처 연락처 저장
@@ -86,24 +86,35 @@ public class SmartPhone {
 				
 				System.out.println("직급을 입력해주세요.");
 				System.out.print("> ");
-				String rank = sc.nextLine();
+				String job = sc.nextLine();
 				
-				add(new CustomerContact(name, phoneNumber, eMail, address, birthday, group, customerName, item, rank));
+				add(new CustomerContact(name, phoneNumber, eMail, address, birthday, group, customerName, item, job));
 
 			}
 			
 			System.out.println("새로운 연락처를 입력했습니다.");
 			
 		} else {
-			System.out.println("입력 가능한 개수를 초과했습니다. 최대 " + ARRAY_SIZE + "개의 연락처를 등록할 수 있습니다.");
+			System.out.println("입력 가능한 개수를 초과했습니다. 최대 " + CONTACTS_SIZE + "개의 연락처를 등록할 수 있습니다.");
 		}
 	}
 	
-	// 목록 보기
-	public void showList() {
+	// 목록 간략히 보기
+	public void showBasicList() {
+		System.out.println("간략한 목록을 출력합니다. (총 " + numOfContact + "명)");
 		System.out.println("-----------------------");
 		for(int i = 0; i < numOfContact; i++) {
-			array[i].showBasicInfo();
+			contacts[i].showBasicData();
+			System.out.println("-----------------------");
+		}
+	}
+	
+	// 목록 자세히 보기
+	public void showAllList() {
+		System.out.println("자세한 목록을 출력합니다. (총 " + numOfContact + "명)");
+		System.out.println("-----------------------");
+		for(int i = 0; i < numOfContact; i++) {
+			contacts[i].showData();
 			System.out.println("-----------------------");
 		}
 	}
@@ -111,7 +122,7 @@ public class SmartPhone {
 	// 이름으로 배열의 index 찾는 메소드
 	public int searchIndex(String name) {
 		for(int i = 0; i < numOfContact; i++) {
-			if(array[i].getName().equals(name)) {
+			if(contacts[i].getName().equals(name)) {
 				return i;
 			}
 		}
@@ -126,7 +137,7 @@ public class SmartPhone {
 		int index = searchIndex(name);
 		
 		if(index != -1) {
-			array[index].showData();
+			contacts[index].showData();
 		} else {
 			System.out.println("해당 이름이 존재하지 않습니다.");
 		}
@@ -146,7 +157,7 @@ public class SmartPhone {
 			if(yesNo.equalsIgnoreCase("Y")) {
 			
 			for(int i = index; i < numOfContact-1; i++) {
-				array[i] = array[i+1];
+				contacts[i] = contacts[i+1];
 			}
 			
 			numOfContact--;
@@ -174,74 +185,74 @@ public class SmartPhone {
 			System.out.print("> ");
 			String temp = sc.nextLine();
 			if(!temp.equalsIgnoreCase("X")) {
-				array[index].setPhoneNumber(temp);
+				contacts[index].setPhoneNumber(temp);
 			}
 
 			System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com) 수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			temp = sc.nextLine();
 			if(!temp.equalsIgnoreCase("X")) {
-				array[index].seteMail(temp);
+				contacts[index].seteMail(temp);
 			}
 
 			System.out.println("수정할 주소를 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			temp = sc.nextLine();
 			if(!temp.equalsIgnoreCase("X")) {
-				array[index].setAddress(temp);
+				contacts[index].setAddress(temp);
 			}
 
 			System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01) 수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			temp = sc.nextLine();
 			if(!temp.equalsIgnoreCase("X")) {
-				array[index].setBirthday(temp);
+				contacts[index].setBirthday(temp);
 			}
 			
-			if(array[index] instanceof CompanyContact) {
+			if(contacts[index] instanceof CompanyContact) {
 				
 				System.out.println("수정할 회사이름을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CompanyContact)array[index]).setCompany(temp);
+					((CompanyContact)contacts[index]).setCompanyName(temp);
 				}
 				
 				System.out.println("수정할 부서이름을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CompanyContact)array[index]).setTeam(temp);
+					((CompanyContact)contacts[index]).setTeamName(temp);
 				}
 				
 				System.out.println("수정할 직급을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CompanyContact)array[index]).setRank(temp);
+					((CompanyContact)contacts[index]).setJob(temp);
 				}
 				
-			} else if(array[index] instanceof CustomerContact) {
+			} else if(contacts[index] instanceof CustomerContact) {
 				
 				System.out.println("수정할 거래처 이름을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CustomerContact)array[index]).setCustomerName(temp);
+					((CustomerContact)contacts[index]).setCustomerName(temp);
 				}
 				
 				System.out.println("수정할 거래품목을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CustomerContact)array[index]).setItem(temp);
+					((CustomerContact)contacts[index]).setItem(temp);
 				}
 				
 				System.out.println("수정할 직급을 입력해주세요. 수정하지 않으려면 X를 입력하세요.");
 				System.out.print("> ");
 				temp = sc.nextLine();
 				if(!temp.equalsIgnoreCase("X")) {
-					((CustomerContact)array[index]).setRank(temp);
+					((CustomerContact)contacts[index]).setJob(temp);
 				}
 				
 			}
