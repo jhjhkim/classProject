@@ -1,4 +1,4 @@
-package project05;
+package project05.first;
 
 import java.util.Scanner;
 
@@ -50,6 +50,7 @@ public class SmartPhone {
 		for (int i = 0; i < numOfContact; i++) {
 			if (array[i].getPhoneNumber().equals(phoneNumber)) {
 				result = true;
+				break;
 			}
 		}
 

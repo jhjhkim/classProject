@@ -1,4 +1,4 @@
-package project05;
+package project05.first;
 
 // 1.Contact 클래스는 기본정보를 저장하고 기본 정보를 출력하는 메소드를 정의합니다.
 //	- 생성자를 통해 기본 정보들을 초기화 합니다.

@@ -1,4 +1,4 @@
-package project05;
+package project05.first;
 
 // ① CompanyContact 회사, 거래처의 정보를 저장하는 하위 클래스를 정의합니다.
 //	- 회사이름, 부서이름, 직급 변수 추가

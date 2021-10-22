@@ -1,4 +1,4 @@
-package project05;
+package project05.first;
 
 public class SmartPhoneMain {
 
