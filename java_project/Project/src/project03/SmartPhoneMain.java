@@ -22,7 +22,7 @@ public class SmartPhoneMain {
 			System.out.println("메뉴를 입력하세요.");
 			System.out.print("> ");
 
-			int select = Integer.parseInt(phone.sc.nextLine());
+			int select = Integer.parseInt(SmartPhone.sc.nextLine());
 
 			switch (select) {
 			case 1:
@@ -43,7 +43,6 @@ public class SmartPhoneMain {
 				break;
 			case 7:
 				System.out.println("프로그램을 종료합니다.");
-				phone.sc.close();
 				return;
 			}
 		}
