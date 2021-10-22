@@ -10,17 +10,17 @@ public class SmartPhone {
 	// 변수와 상수 선언
 	final int ARRAY_SIZE = 10;
 	public static final Scanner scanner = new Scanner(System.in);
-	private Contact[] array;
+	private Contact[] contacts;
 	private int numOfContact;
 
 	// 생성자
 	public SmartPhone() {
-		array = new Contact[ARRAY_SIZE];
+		contacts = new Contact[ARRAY_SIZE];
 		numOfContact = 0;
 	}
 
 	public SmartPhone(int size) {
-		array = new Contact[size];
+		contacts = new Contact[size];
 		numOfContact = 0;
 	}
 
@@ -68,7 +68,7 @@ public class SmartPhone {
 			System.out.print("> ");
 			String group = scanner.nextLine();
 
-			array[numOfContact++] = new Contact(name, phoneNumber, eMail, address, birthday, group);
+			contacts[numOfContact++] = new Contact(name, phoneNumber, eMail, address, birthday, group);
 			System.out.println("새로운 연락처를 입력했습니다.");
 			
 		} else {
@@ -81,7 +81,7 @@ public class SmartPhone {
 		System.out.println("연락처 전체 목록");
 		System.out.println("-------------------------------------");
 		for (int i = 0; i < numOfContact; i++) {
-			array[i].printInfo();
+			contacts[i].printInfo();
 			System.out.println("-------------------------------------");
 		}
 	}
@@ -90,8 +90,9 @@ public class SmartPhone {
 	private int searchIndex(String name) {
 		int index = -1;
 		for (int i = 0; i < numOfContact; i++) {
-			if (array[i].getName().equals(name)) {
+			if (contacts[i].getName().equals(name)) {
 				index = i;
+				break;
 			}
 		}
 		return index;
@@ -104,7 +105,7 @@ public class SmartPhone {
 		int index = searchIndex(name);
 		if (index != -1) {
 			System.out.println("-------------------------------------");
-			array[index].printInfo();
+			contacts[index].printInfo();
 			System.out.println("-------------------------------------");
 		} else {
 			System.out.println("입력하신 이름이 존재하지 않습니다.");
@@ -123,7 +124,7 @@ public class SmartPhone {
 			if (yesNo.equalsIgnoreCase("Y")) {
 
 				for (int i = index; i < numOfContact - 1; i++) {
-					array[i] = array[i + 1];
+					contacts[i] = contacts[i + 1];
 				}
 				numOfContact--;
 				System.out.println("연락처가 삭제되었습니다.");
@@ -148,41 +149,41 @@ public class SmartPhone {
 			System.out.print("> ");
 			String phoneNumber = scanner.nextLine();
 			if (!phoneNumber.equalsIgnoreCase("X")) {
-				array[index].setPhoneNumber(phoneNumber);
+				contacts[index].setPhoneNumber(phoneNumber);
 			}
 
 			System.out.println("수정할 이메일 주소를 입력해주세요. (예. email@email.com)\n수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			String eMail = scanner.nextLine();
 			if (!eMail.equalsIgnoreCase("X")) {
-				array[index].seteMail(eMail);
+				contacts[index].seteMail(eMail);
 			}
 
 			System.out.println("수정할 주소를 입력해주세요.\n수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			String address = scanner.nextLine();
 			if (!address.equalsIgnoreCase("X")) {
-				array[index].setAddress(address);
+				contacts[index].setAddress(address);
 			}
 
 			System.out.println("수정할 생일을 입력해주세요. (예. 1900-01-01)\n수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			String birthday = scanner.nextLine();
 			if (!birthday.equalsIgnoreCase("X")) {
-				array[index].setBirthday(birthday);
+				contacts[index].setBirthday(birthday);
 			}
 
 			System.out.println("수정할 그룹을 입력해주세요.\n수정하지 않으려면 X를 입력하세요.");
 			System.out.print("> ");
 			String group = scanner.nextLine();
 			if (!group.equalsIgnoreCase("X")) {
-				array[index].setGroup(group);
+				contacts[index].setGroup(group);
 			}
 
 			System.out.println("연락처가 수정되었습니다.");
 
 			System.out.println("-------------------------------------");
-			array[index].printInfo();
+			contacts[index].printInfo();
 			System.out.println("-------------------------------------");
 
 		} else {
