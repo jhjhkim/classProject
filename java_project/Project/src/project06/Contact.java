@@ -78,14 +78,12 @@ public abstract class Contact implements ShowData {
 	}
 
 	public void showData() {
-		System.out.println("이름: " + this.name);
-		System.out.println("전화번호: " + this.phoneNumber);
-		System.out.println("이메일: " + this.eMail);
-		System.out.println("주소: " + this.address);
-		System.out.println("생일: " + this.birthday);
-		System.out.println("그룹: " + this.group);
+		System.out.println("이름: " + name);
+		System.out.println("전화번호: " + phoneNumber);
+		System.out.println("이메일: " + eMail);
+		System.out.println("주소: " + address);
+		System.out.println("생일: " + birthday);
+		System.out.println("그룹: " + group);
 	}
-	
-	public abstract void showBasicInfo();
 	
 }
