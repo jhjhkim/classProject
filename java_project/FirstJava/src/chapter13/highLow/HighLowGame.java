@@ -22,6 +22,7 @@ public class HighLowGame {
 		Random r = new Random();
 		int number = r.nextInt(100) + 1;
 
+		// 카운트다운 스레드 시작
 		thread.start();
 		
 		// 2. 사용자에게 숫자를 입력 받기
@@ -37,7 +38,7 @@ public class HighLowGame {
 			} else if (userNumber < number) {
 				System.out.println("DOWN! 더 높은 숫자를 적어보세요. >>>");
 			} else if (userNumber == number) {
-				System.out.println("정답입니다!");
+				System.out.println("미션 성공! 정답입니다!");
 				inputSwitch = true;
 				break;
 			}

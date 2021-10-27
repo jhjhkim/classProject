@@ -20,7 +20,7 @@ public class CountDownThread extends Thread {
 			}
 		}
 		
-		System.out.println("30초 안에 맞히지 못했습니다. 프로그램을 종료합니다.");
+		System.out.println("미션 실패! 30초 안에 맞히지 못했습니다. 프로그램을 종료합니다.");
 		
 	}
 	
