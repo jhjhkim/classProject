@@ -30,7 +30,7 @@ public class HighLowGame {
 		
 		int userNumber = Integer.parseInt(sc.nextLine());
 
-		while (!inputSwitch) {
+		while (true) {
 
 			// 3. 추출한 숫자와 사용자의 숫자를 비교하여 출력
 			if (userNumber > number) {
