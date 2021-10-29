@@ -1,26 +1,32 @@
 -- select 문제풀이
 -- EMP 테이블과 DEPT 테이블을 이용해서 풀이해 주세요.
 
--- 1. 덧셈연산자를 이용하여 모든 사원에 대해서 $300의 급여 인상을 계산한 후 사원의 이름, 급여, 인상된 급여를 출력하시오.
+-- 1. 덧셈연산자를 이용하여 
+-- 모든 사원에 대해서 $300의 급여 인상을 계산한 후 
+-- 사원의 이름, 급여, 인상된 급여를 출력하시오.
 select ename as "사원이름", sal as "급여", sal + 300 as "인상된 급여"
 from emp
 ;
 
--- 2. 사원의 이름, 급여, 연간 총 수입을 총 수입이 많은 것부터 작은 순으로 출력하시오, 
--- 연간 총수입은 월급에 12를 곱한 후 $100의 상여금을 더해서 계산하시오.
-select ename, sal, sal * 12 + 100
+-- 2. 사원의 이름, 급여, 연간 총 수입을 
+--   총 수입이 많은 것부터 작은 순으로 출력하시오, -> 내림차순
+--   연간 총수입은 월급에 12를 곱한 후 $100의 상여금을 더해서 계산하시오.
+select ename, sal, sal * 12 + 100 as income
 from emp
-order by sal * 12 + 100 desc
+order by income desc
 ;
 
--- 3. 급여가 2000을 넘는 사원의 이름과 급여를 표현, 급여가 많은 것부터 작은 순으로 출력하시오.
+-- 3. 급여가 2000을 넘는 
+--  사원의 이름과 급여를 표현, 
+--  급여가 많은 것부터 작은 순으로 출력하시오.
 select ename, sal
 from emp
 where sal > 2000
 order by sal desc
 ;
 ​
--- 4. 사원번호가 7788인 사원의 이름과 부서번호를 출력하시오.
+-- 4. 사원번호가 7788인 사원의
+--    이름과 부서번호를 출력하시오.
 select ename, deptno
 from emp
 where empno = 7788
@@ -42,7 +48,8 @@ where hiredate between '81/02/20' and '81/05/01'
 -- 이름을 기준(내림차순)으로 영문자순으로 출력하시오.
 select ename, deptno
 from emp
-where deptno = 20 or deptno = 30
+-- where deptno = 20 or deptno = 30
+where deptno in (20, 30)
 order by ename desc
 ;
 
@@ -50,7 +57,8 @@ order by ename desc
 -- 부서번호가 20 또는 30인 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.
 select ename, sal, deptno
 from emp
-where sal between 2000 and 3000 and (deptno = 20 or deptno = 30)
+-- where sal between 2000 and 3000 and (deptno = 20 or deptno = 30)
+where sal between 2000 and 3000 and deptno in (20, 30)
 order by ename
 ;
 ​
@@ -70,7 +78,7 @@ where mgr is null
 -- 급여 및 커미션을 기준으로 내림차순 정렬하여 표시하시오.
 select ename, sal, comm
 from emp
-where comm is not null
+where comm is not null and comm > 0
 order by sal desc, comm desc
 ;
 
