@@ -75,11 +75,12 @@ group by job
 ;
 ​
 
---26. 관리자 수를 출력하시오.
-select count(job) as "관리자 수"
-from emp
-where job = 'MANAGER'
-;
+--26. 관리자 수를 출력하시오. => 관리업무를 하는 사원의 수
+--select count(job) as "관리자 수" from emp where job = 'MANAGER';
+select mgr from emp order by mgr;
+select distinct(mgr) from emp order by mgr;
+select count(distinct(mgr)) from emp;
+
 
 --27. 급여 최고액, 급여 최저액의 차액을 출력하시오.
 select max(sal) - min(sal)
@@ -133,11 +134,11 @@ order by deptno
 select job,
        deptno as "DNO",
        sum(decode(deptno, 10, sal,
-                  null)) as "부서10",
+                  0)) as "부서10",
        sum(decode(deptno, 20, sal,
-                  null)) as "부서20",
+                  0)) as "부서20",
        sum(decode(deptno, 30, sal,
-                  null)) as "부서30",
+                  0)) as "부서30",
        sum(sal) as "총액"
 from emp
 group by job, deptno
