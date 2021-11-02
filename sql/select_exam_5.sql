@@ -98,10 +98,8 @@ having avg(saleprice) > (select avg(Saleprice) from orders)
 --(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
 -- 박지성이 구매한 도서의 출판사
 select distinct publisher
-from book natural join orders
-where custid = (
-    select custid from customer where name = '박지성'
-    )
+from book natural join orders natural join customer
+where name = '박지성'
 ;
 
 -- 박지성이 구매한 도서의 출판사에서 나온 책
@@ -109,10 +107,8 @@ select bookid
 from book
 where publisher in (
     select distinct publisher
-    from book natural join orders
-    where custid = (
-        select custid from customer where name = '박지성'
-        )
+    from book natural join orders natural join customer
+    where name = '박지성'
     )
 ;
 
@@ -123,10 +119,8 @@ where bookid in (
     select bookid from book
     where publisher in (
         select distinct publisher
-        from book natural join orders
-        where custid = (
-            select custid from customer where name = '박지성'
-            )
+        from book natural join orders natural join customer
+        where name = '박지성'
         )
     )
     and name <> '박지성'
