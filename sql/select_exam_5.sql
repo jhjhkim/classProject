@@ -10,6 +10,7 @@ from book join orders
 using (bookid)
 where custid = (select custid from customer where name = '박지성')
 ;
+
 --(6) 박지성이 구매한 도서의 이름, 가격, 정가와 판매가격의 차이
 select bookname, price, saleprice, price-saleprice as pricegap
 from book natural join orders natural join customer
@@ -26,6 +27,7 @@ where custid = (select custid from customer where name = '박지성')
 -- 박지성이 구매한 도서의 bookid
 select bookid from orders natural join customer where name = '박지성';
 
+-- 박지성이 구매하지 않은 도서의 이름
 select bookname
 from book
 where bookid not in (
