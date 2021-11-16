@@ -1,0 +1,1 @@
+console.log('app.js에서 출력');
