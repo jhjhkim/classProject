@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FORM Tag</title>
+</head>
+<body>
+    <!-- 서버로 전송하고자 하는 폼 데이터를 묶는다.
+        action : 데이터를 전송할 경로(위치). ①서버주소(도메인/아이피) ②같은 서버 내부의 경로 ③자기자신
+        method : 전송 방식 ( GET / POST ) -->
+    <form method="get"> <!-- action="#"":나 자신(현재 페이지)로 전송. 자기 자신에게 보낼 때는 생략 가능! -->
+        
+        <input type="submit">
+
+        <hr>
+
+        <input type="button" value="내가만든버튼"> <br>
+        <input type="submit" value="로그인/회원가입"> <br>
+        <input type="reset"> <br>
+        <button>전송</button> <!-- submit과 같은 역할 but input이 아니다! --> <br>
+        <input type="image" src="minions.png"> <!-- 이미지를 버튼처럼 쓰고 싶을 때 -->
+
+        <hr>
+
+        입력 폼이 보이지 않는 hidden : <input type="hidden" name="midx" value="11"> <br>
+
+        파일 첨부 : <input type="file" name="file"> <br>
+
+        나이 0<input type="range" min="0" max="150" name="age">150
+
+        <hr>
+
+        tel <input type="tel" name="tel"> <br>
+        url <input type="url" name="url"> <br>
+        숫자 <input type="number" name="number"> <br>
+        이메일 <input type="email" name="email"> <br>
+
+        <hr>
+
+        <input type="week" name="week"> <br>
+        <input type="month" name="month"> <br>
+        <input type="time" name="time"> <br>
+        <input type="date" name="date"> <br>
+        <!-- <input type="datetime" name="datetime"> datetime => 기능 소멸<br> -->
+        <input type="datetime-local" name="datetimelocal"> <br>
+
+        <hr>
+
+        type= "color" : <input type="color" name="color">
+
+        <hr>
+
+        <!-- radio : 여러 중 한 개를 선택 -->
+        <input type="radio" name="program" value="java"> 자바<br>
+        <input type="radio" name="program" value="html5"> HTML5<br>
+        <input type="radio" name="program" value="css3"> CSS3<br>
+        <input type="radio" name="program" value="javascript"> javascript<br>
+
+        <hr>
+
+        <!-- checkbox는 여러 개 선택을 할 때 사용 -->
+        <input type="checkbox" name="lang" value="ko"> 한글<br>
+        <input type="checkbox" name="lang" value="en"> 영어<br>
+
+        <hr>
+
+        이름 : <input type="text" name="username" value="cool"> <br>
+        ID <input name="userid"> <br>
+        pw <input type="password" name="pw"> <br>
+
+    </form>
+</body>
+</html>
