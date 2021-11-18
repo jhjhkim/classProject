@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본 선택자</title>
+    <!-- 기본 선택자 -->
+    <style>
+        /* 선택자 {속성이름:속성값;속성이름:속성값} */
+/*         * {
+            color: red;
+            /* background-color: aqua; */
+        } */
+
+        h1 {
+            background-color: bisque;
+        }
+
+        #title {
+            font-style: italic;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .bold1 {
+            font-weight: lighter;
+        }
+
+        p {
+            color: blue;
+        }
+
+        /* 위에서 아래로 읽어 내려오면서 순차적으로 적용! */
+
+        h1,
+        p {
+            margin: 0px;
+        }
+
+        #header {
+            width: 300px;
+            height: 100px;
+
+            background-color: yellow;
+
+            /* margin: 10px 20px 30px 40px; top right bottom left */
+            /* margin: 30px 10px; */
+            margin: 0 auto;
+        }
+
+        div#contents {
+            width: 300px;
+            height: 500px;
+
+            background-color: green;
+
+            margin: 0 auto;
+        }
+
+        h1.title {
+            background-color: black;
+            color: white;
+            font-weight: lighter;
+        }
+    </style>
+
+    <!-- 속성 선택자 -->
+    <style>
+        input[type] {
+            border: 5px solid #000000;
+        }
+
+        input[type=text] {
+            background-color: blue;
+        }
+
+        input[type=password] {
+            background-color: chartreuse;
+        }
+    </style>
+
+    <!-- 범위 한정 선택 : 자손, 후손 -->
+    <style>
+        #header1 h1 {
+            background-color: white;
+            color: red;
+        }
+
+        #section h1 {
+            color: blueviolet;
+        }
+
+        #header1>h1 {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- 동위 선택자 : +, ~ -->
+    <style>
+        #head1+h1 {
+            color: blue;
+        }
+
+        #head1~h2 {
+            background-color: orange;
+        }
+    </style>
+
+    <!-- 반응 선택자 -->
+    <style>
+        /* 마우스 커서가 특정 요소 위로 올라갔을 때의 반응 */
+        h3:hover {
+            color: royalblue;
+            background-color: salmon;
+        }
+
+        /* 마우스 커서가 특정 요소를 클릭했을 때 반응 */
+        h3:active {
+            color: blue;
+            background-color: chartreuse;
+        }
+    </style>
+
+    <!-- 상태 선택자 -->
+    <style>
+        input:enabled {
+            border: 5px solid #ff0000;
+        }
+
+        input:disabled {
+            background-color: darkgray;
+        }
+
+        input:focus {
+            background-color: orange;
+            border: 5px solid darkturquoise;
+        }
+
+        #article {
+            width: 500px;
+            height: 200px;
+
+            overflow: hidden;
+        }
+
+        input[type=checkbox]:checked+div#article {
+            height: 0px;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+    </style>
+
+    <!-- 구조 선택자 -->
+    <style>
+        /* 리스트 태그를 수평 방향으로 나열 */
+        ul {
+            overflow: hidden;
+
+            /* 리스트 스타일 */
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            padding: 10px 30px;
+        }
+
+        li:nth-child(2n) {
+            background-color: gold;
+            color: black;
+        }
+
+        li:nth-child(2n+1) {
+            background-color: aquamarine;
+            color: blue;
+        }
+
+        li:first-child {
+            background-color: deeppink;
+            color: floralwhite;
+
+            border-radius: 10px 0px 0px 40px;
+        }
+
+        li:last-child {
+            background-color: deeppink;
+            color: floralwhite;
+
+            border-radius: 0px 40px 10px 0px;
+        }
+    </style>
+
+    <style>
+        #photo {
+            border-radius: 50%;
+            border: 3px solid gray;
+            width: 100px;
+        }
+    </style>
+
+    <!-- 링크 선택자-->
+    <style>
+        a:link {
+            color: green;
+            text-decoration: none; /* 언더라인이 사라짐 */
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:hover {
+            color: rgb(0, 0, 0);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    test
+    <a>네이버</a>
+    <a href="test">네이버</a>
+    <a href="http:/www.naver.com">네이버</a>
+
+    <hr>
+
+
+    <img id="photo" src="images/minion2.jpg" alt="">
+
+
+    <hr>
+
+
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+        <li>Fourth</li>
+        <li>Fifth</li>
+        <li>Sixth</li>
+        <li>Seventh</li>
+    </ul>
+
+
+    <hr>
+
+
+    <label for="btn">기사 가리기</label> <input type="checkbox" id="btn">
+    <div id="article">
+        <h1>[지스타 2021]슈퍼캣 게임 '그래니의 저택', 위믹스 플랫폼 합류</h1>
+        <p>슈퍼캣이 서비스하는 '그래니의 저택'이 위믹스 플랫폼에 합류한다.</p>
+        <p>18일 위메이드와 슈퍼캣에 따르면 슈퍼캣의 게임을 위믹스 플랫폼에 온보딩하기로 합의하고 업무협약(MOU)을 체결했다. 이번 MOU를 통해 슈퍼캣이 서비스하는 게임에 블록체인 기술을 적용하고
+            위메이드의 블록체인 플랫폼인 위믹스에서 글로벌 시장을 공략한다.</p>
+    </div>
+
+    <hr>
+
+    <input> <input disabled>
+
+
+    <hr>
+
+
+    <h3>반응 선택자</h3>
+
+
+
+    <hr>
+
+
+    <div>
+
+        <h1 id="head1">Header1 - 1</h1>
+        <h1>Header1 - 2</h1>
+        <h2>Header2 - 1</h2>
+        <h2>Header2 - 2</h2>
+        <h2>Header2 - 3</h2>
+        <h2>Header2 - 4</h2>
+
+    </div>
+
+
+    <hr>
+
+
+    <div id="header1">
+        <h1 class="title"> 제목입니다. </h1>
+        <div id="nav">
+            <h1>내비게이션</h1>
+        </div>
+    </div>
+
+    <div id="section">
+        <h1 class="title"> 제목2입니다. </h1>
+        <p>내용이 표현됩니다.</p>
+    </div>
+
+
+
+    <hr>
+
+
+    <input type="text"> <input type="password">
+    <h2>h2</h2>
+
+
+    <hr>
+
+
+    <div id="header">
+        <h1 class="title">HEADER</h1>
+    </div>
+    <div id="contents">
+        <img src="minions.png" width=250px>
+    </div>
+    <div id="footer"></div>
+
+
+    <hr>
+
+    <h1 id="title" class="bold1">미국 전기차 스타트업 '피스커'...첫 전기 SUV '오션' 공개</h1>
+    <p class="bold">미국 전기차 스타트업 피스커(Fisker)가 내년 본격적으로 생산을 시작할 첫 SUV 전기자동차(전기차) '오션(Ocean)'을 마침내 공개했다.</p>
+    <p class="bold1">17일(현지시간) 미국 IT전문매체 &lt;엔가젯(engadget)&gt;, &lt;테크크런치(techcrunch)&gt; 등에 따르면 피스커는 오는 19일(현지시간) 미국
+        로스앤젤레스(LA)에서 열리는 '2021 LA 오토쇼'에 앞서 해당 차량을 공개했다. 피스커는 지난 2018년 첫 콘셉트카를 선보인 바 있다.</p>
+    <h1>footer</h1>
+</body>
+
+</html>
