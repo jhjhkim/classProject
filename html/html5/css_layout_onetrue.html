@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OneTrue layout</title>
+    <style>
+        div {
+            /* border: 1px solid #000; */
+
+            text-align: center;
+        }
+
+        #main_wrap {
+            width: 800px;
+            border: 1px solid #666;
+            margin: 0 auto;
+
+            box-shadow: 5px 5px 10px #ccc;
+        }
+
+        #header {
+            /* width: 800px; */
+            height: 150px;
+
+            /* margin: 0 auto; */
+        }
+
+        #nav {
+            /* width: 800px; */
+            height: 30px;
+
+            /* margin: 0 auto; */
+
+            border-top: 1px solid #666;
+            border-bottom: 1px solid #666;
+        }
+
+        #wrap {
+            /* width: 800px; */
+
+            /* margin: 0 auto; */
+
+            overflow: hidden; /* float속성이 바깥으로 영향을 주지 않도록! */
+            border: 0;
+        }
+
+        #content {
+            width: 598px;
+            height: 250px;
+
+            float: left;
+
+            border-right: 1px solid #666;
+        }
+
+        #aside {
+            width: 198px;
+            height: 100px;
+
+            float: right;
+        }
+
+        #footer {
+            /* clear: both; */
+            /* 위에 정의된 float 속성에 영향을 받지 않도록! */
+
+            /* width: 800px; */
+            height: 50px;
+            /* margin: 0 auto; */
+            
+            border-top: 1px solid #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main_wrap">
+        <div id="header">HEADER</div>
+
+        <div id="nav">Navigation</div>
+
+        <div id="wrap">
+            <div id="content">Content</div>
+            <div id="aside">Aside</div>
+        </div>
+
+        <div id="footer">Footer</div>
+    </div>
+
+</body>
+
+</html>
