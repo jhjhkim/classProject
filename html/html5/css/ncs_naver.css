@@ -1,0 +1,131 @@
+/* 웹폰트 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/* 전체 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.font_gray {
+    color: gray;
+}
+
+.font_14px {
+    font-size: 14px;
+}
+
+/* wrap 설정 */
+#wrap {
+    margin: 0 auto;
+}
+
+/* header 설정 */
+header {
+    height: 200px;
+    text-align: center;
+}
+
+.logo {
+    width: 250px;
+    margin-top: 111px;
+}
+
+/* section 설정 */
+section {
+    width: 490px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+
+/* loginbox 설정 */
+#loginbox {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.insert {
+    width: 430px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0 0 0 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 18px;
+}
+
+#loginbox input:focus {
+    border: 1px solid rgb(3,200,90);
+    outline: none;
+}
+
+#loginbox input[type=submit] {
+    width: 450px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: rgb(3, 200, 90);
+    border: 1px solid rgb(2, 170, 80);
+    color: white;
+    font-size: 18px;
+}
+
+#loginbox input[type=checkbox] {
+    padding: 10px;
+}
+
+/* menubox 설정 */
+#menubox {
+    height: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#menubox>ul {
+    list-style: none;
+}
+
+#menubox>ul>li {
+    display: inline-block;
+    padding: 0 10px;
+    border-left: 1px solid #ccc;
+}
+
+#menubox>ul>li:first-child {
+    border-left: none;
+}
+
+/* footer 설정 */
+footer{ 
+    padding: 10px;
+    text-align: center;
+}
+
+footer>ul {
+    list-style: none;
+    padding: 5px 0;
+}
+
+#footer1>li {
+    display: inline-block;
+    padding: 0 10px;
+    border-left: 1px solid #ccc;
+}
+
+#footer1>li:first-child {
+    border-left: none;
+}
+
+#footer2>li {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+#footer2>li>img {
+    height: 12px;
+}

@@ -1,0 +1,188 @@
+/* 전체 설정 */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* a 설정 */
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* section 설정 */
+section {
+    height: 590px;
+    padding-top: 130px;
+    background-color: rgb(240, 242, 245);
+}
+
+/* main_wrap 설정 */
+#main_wrap {
+    width: 1000px;
+    margin: 0 auto;
+
+    overflow: visible;
+    position: relative;
+}
+
+/* main_message 설정 */
+#main_message {
+    width: 530px;
+    float: left;
+
+    position:absolute;
+    top: 30px;
+}
+
+#main_message>img {
+    width: 300px;
+}
+
+#main_message>p {
+    margin-left: 30px;
+    font-size: 28px;
+}
+
+/* main_login 설정 */
+#main_login {
+    float: right;
+
+    width: 400px;
+    height: 400px;
+}
+
+/* login 설정 */
+#login {
+    width: 360px;
+    height: 310px;
+    padding: 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+
+    box-shadow: 5px 5px 10px #ddd;
+
+    overflow: visible;
+}
+
+/* login_insert 설정 */
+#login_insert {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    overflow: visible;
+}
+
+#login_insert input {
+    width: 330px;
+    height: 20px;
+    margin: 0px auto 15px auto;
+    padding: 15px;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    border: 1px solid #ddd;
+}
+
+#login_insert input:focus {
+    border: 1px solid rgb(24, 119, 242);
+    box-shadow: 1px 1px 5px #ddd;
+    outline: none;
+}
+
+#login_insert input[type=submit]{
+    width: 360px;
+    height: 50px;
+    border: 1px solid rgb(24, 119, 242);
+    background-color: rgb(24, 119, 242); 
+
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+#login_insert>a {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(24, 119, 242);
+    font-size: 14px;
+}
+
+/* join 설정 */
+#join {
+    padding: 20px;
+    text-align: center;
+}
+
+#join>input {
+    margin: 0 auto;
+    padding: 13px 15px 13px 15px;
+    border-radius: 7px;
+    border: 1px solid rgb(66, 183, 42);
+    background-color: rgb(66, 183, 42);
+
+    border:hidden;
+
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+#page {
+    padding-top: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#page a {
+    font-weight: bold;
+    color: black;
+}
+
+/* footer 설정 */
+footer {
+    width: 1000px;
+    height: 160px;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    font-size: 12px;
+    color: #888;
+}
+
+footer>div {
+    margin: 10px;
+}
+
+footer ul {
+    float: left;
+    list-style: none;
+}
+
+footer li {
+    float: left;
+}
+/* footer1 설정 */
+#footer1 {
+    height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+#footer1 li {
+    padding: 0 10px 0 0;
+}
+
+/* footer2 설정 */
+#footer2 {
+    height: 60px;
+}
+
+#footer2 li {
+    padding: 0 20px 3px 0px;
+}
