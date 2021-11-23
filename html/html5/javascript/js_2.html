@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 자바스크립트의 변수 특징
+        // 호이스팅 -> 변수 선언과 동시에 초기화하지 않는 경우 자동으로 undefined 
+
+        // 변수 선언 방법 => var 변수이름(식별자);
+        // var의 생명주기 => 함수 단위
+        var num;
+
+        console.log("num =>", num);
+
+        // 함수 호출
+        fn();
+
+        // 함수 정의: 프로그램이 실행되기 전에 먼저 실행된다.
+        function fn() {
+            num = 11;
+            var age = 10; // 함수 내에서 존재하는 변수
+            console.log('age1 =>', age);
+            console.log('num1 =>', num);
+
+            // 상수를 만드는 const
+            const no = 7;
+            no = 777;
+
+            // let: 생명주기가 블록({})을 기준으로
+            for (let i = 0; i < 5; i++) {
+                console.log(i);
+            }
+            console.log('for문 밖에서 ')
+        }
+        
+
+        //alert(111);
+        
+        console.log(true);
+        console.log(false);
+        /*
+            논리값 true/false
+            비교연산 ( > < >= <= == != ) 가능하다
+            논리연산 ( && || ! )
+        */
+
+        console.log(111);
+        console.log('test \n tester');
+        console.log('age:', 11);
+        console.log('errorCode:', 404);
+
+        // 숫자연산을 위한 산술연산이 가능하다.
+        // 숫자는 정수와 실수의 타입을 구분하지 않는다.
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
