@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 사용자에게 숫자를 입력 받아 양수, 0, 음수를 구분하는 프로그램
+        var input = prompt('숫자를 입력해주세요.');
+        var numberInput = Number(input);
+        
+        console.log('사용자가 입력한 숫자 :', numberInput);
+
+        var result;
+        if(numberInput && numberInput > 0) {
+            result = '양수';
+        } else if (numberInput && numberInput < 0) {
+            result = '음수';
+        } else if (numberInput == 0) {
+            result = '0';
+        } else {
+            result = '숫자가 아닙니다.';
+        }
+
+        console.log('사용자가 입력한 숫자는', result);
+
+        // 삼항연산자 => (불리언 표현식) ? (참일때 실행) : (거짓일때 실행);
+        var msg = (numberInput > 0) ? '양수' : (numberInput < 0) ? '음수' : '0';
+        console.log('사용자가 입력한 숫자는', msg);
+
+        // 사용자에게 숫자를 입력 받아 홀수와 짝수를 구분하는 프로그램
+        var input = prompt('숫자를 입력해주세요.');
+        var numberInput = Number(input);
+        
+        console.log('사용자가 입력한 숫자 :', numberInput);
+
+        var result;
+        if(numberInput && numberInput % 2 == 0) {
+            result = '짝수';
+        } else if (numberInput && numberInput % 2 == 1){
+            result = '홀수';
+        } else {
+            result = '0 또는 숫자가 아닙니다.'
+        }
+
+        console.log('사용자가 입력한 숫자는', result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
