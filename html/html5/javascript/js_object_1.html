@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript - 생성자 함수</title>
+
+    <script>
+
+        // 생성자 함수 -> new 키워드를 이용해서 객체를 만들어주는 함수
+        // 생성자 함수의 이름은 대문자로 시작한다.
+
+        /* function Student() {
+
+        }
+
+        var st = new Student();
+        console.log(typeof(st)); */
+
+        function Student(name, kor, eng, math){
+            // 객체의 속성 정의, 초기화
+            this.name=name;
+            this.kor=kor;
+            this.eng=eng;
+            this.math=math;
+
+            /* // 총점을 구하는 메소드
+            this.getSum = function(){
+                return this.kor+this.eng+this.math;
+            }
+
+            // 평균점수를 구하는 메소드
+            this.getAvg = function(){
+                return this.getSum()/3;
+            }
+
+            // html 문자열을 반환하는 메소드
+            this.makeHtml = function(){
+                var rowHtml = '';
+                rowHtml += '    <tr>\n';
+                rowHtml += '        <th>' + this.name + '</th>\n';
+                rowHtml += '        <th>' + this.kor + '</th>\n';
+                rowHtml += '        <th>' + this.eng + '</th>\n';
+                rowHtml += '        <th>' + this.math + '</th>\n';
+                rowHtml += '        <th>' + this.getSum() + '</th>\n';
+                rowHtml += '        <th>' + this.getAvg() + '</th>\n';
+                rowHtml += '    </tr>';
+
+                return rowHtml;
+            } */
+        }
+
+        // prototype을 이용해서 공통 메소드를 정의
+        Student.prototype.getSum = function(){
+            return this.kor+this.eng+this.math;
+        }
+
+        Student.prototype.getAvg = function(){
+            return this.getSum()/3;
+        }
+
+        Student.prototype.makeHtml = function(){
+            var rowHtml = '';
+                rowHtml += '    <tr>\n';
+                rowHtml += '        <th>' + this.name + '</th>\n';
+                rowHtml += '        <th>' + this.kor + '</th>\n';
+                rowHtml += '        <th>' + this.eng + '</th>\n';
+                rowHtml += '        <th>' + this.math + '</th>\n';
+                rowHtml += '        <th>' + this.getSum() + '</th>\n';
+                rowHtml += '        <th>' + this.getAvg() + '</th>\n';
+                rowHtml += '    </tr>';
+
+            return rowHtml;
+        }
+
+
+        var st = new Student('A', 100, 90, 80);
+        console.log(st);
+        console.log(st.makeHtml());
+
+        window.onload = function() {
+            var students = [];
+            // 요소들을 입력
+            students.push(new Student('A', 100, 90, 80));
+            students.push(new Student('B', 90, 99, 85));
+            students.push(new Student('C', 80, 55, 90));
+            students.push(new Student('D', 70, 66, 95));
+            students.push(new Student('E', 60, 77, 80));
+            students.push(new Student('F', 50, 88, 85));
+            students.push(new Student('G', 60, 100, 90));
+            students.push(new Student('H', 70, 70, 80));
+            students.push(new Student('I', 80, 60, 70));
+            students.push(new Student('J', 90, 50, 90));
+
+            // 순위를 위한 배열 정렬
+            students.sort(function(left, right){
+                return right.getSum()-left.getSum();
+            });
+
+            // 전체 리스트 출력
+            var newHtml = '';
+            newHtml += '<table border="1">';
+            newHtml += '    <tr>';
+            newHtml += '        <th>이름</th>';
+            newHtml += '        <th>국어</th>';
+            newHtml += '        <th>영어</th>';
+            newHtml += '        <th>수학</th>';
+            newHtml += '        <th>총점</th>';
+            newHtml += '        <th>평균점수</th>';
+            newHtml += '    </tr>';
+
+            for(let i=0; i<students.length; i++){
+                newHtml += students[i].makeHtml();
+            }
+
+            newHtml += '</table>';
+
+            // 웹문서 body 태그 안에 위에서 정의한 html 문자열을 적용
+            document.body.innerHTML = newHtml;
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
