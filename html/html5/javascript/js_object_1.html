@@ -19,38 +19,14 @@
         console.log(typeof(st)); */
 
         function Student(name, kor, eng, math){
-            // 객체의 속성 정의, 초기화
+            // 생성자 함수 안에서는 객체의 속성 정의, 초기화만!
             this.name=name;
             this.kor=kor;
             this.eng=eng;
             this.math=math;
-
-            /* // 총점을 구하는 메소드
-            this.getSum = function(){
-                return this.kor+this.eng+this.math;
-            }
-
-            // 평균점수를 구하는 메소드
-            this.getAvg = function(){
-                return this.getSum()/3;
-            }
-
-            // html 문자열을 반환하는 메소드
-            this.makeHtml = function(){
-                var rowHtml = '';
-                rowHtml += '    <tr>\n';
-                rowHtml += '        <th>' + this.name + '</th>\n';
-                rowHtml += '        <th>' + this.kor + '</th>\n';
-                rowHtml += '        <th>' + this.eng + '</th>\n';
-                rowHtml += '        <th>' + this.math + '</th>\n';
-                rowHtml += '        <th>' + this.getSum() + '</th>\n';
-                rowHtml += '        <th>' + this.getAvg() + '</th>\n';
-                rowHtml += '    </tr>';
-
-                return rowHtml;
-            } */
         }
 
+        // prototype : 자바스크립트에서 생성된 모든 함수는 prototype이라는 변수(객체)를 갖는다.
         // prototype을 이용해서 공통 메소드를 정의
         Student.prototype.getSum = function(){
             return this.kor+this.eng+this.math;
