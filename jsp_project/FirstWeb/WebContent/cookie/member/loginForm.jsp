@@ -25,7 +25,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="checkbox" name="saveId" <%= cookieBox.exists("SAVEID") ? "checked" : "" %>> ID 저장하기
+					<input type="checkbox" name="saveId" id="saveId" <%= cookieBox.exists("SAVEID") ? "checked" : "" %>> 
+					<label for="saveId">ID 저장하기</label>
 				</td>
 			</tr>
 			<tr>
