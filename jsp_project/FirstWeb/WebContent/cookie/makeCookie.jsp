@@ -1,3 +1,4 @@
+<%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -11,6 +12,11 @@
 	
 	response.addCookie(cookie1);
 	response.addCookie(c);
+	
+	////////////////////////////////////////////////
+	// CookieBox 이용
+	response.addCookie(CookieBox.createCookie("uid", "cool"));
+	response.addCookie(CookieBox.createCookie("chk", "0", 20));
 	
 %>
 <!DOCTYPE html>
