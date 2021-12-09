@@ -13,7 +13,7 @@
 <body>
 	<%-- <%= request.getContextPath() %> --%>
 	
-	<form action="<%= request.getContextPath() %>/cookie/member/login.jsp">
+	<form action="<%= request.getContextPath() %>/cookie/member/login.jsp" method="post">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="checkbox" name="saveId" id="saveId" <%= cookieBox.exists("SAVEID") ? "checked" : "" %>> 
+					<input type="checkbox" name="saveId" id="saveId" value="on" <%= cookieBox.exists("SAVEID") ? "checked" : "" %>> 
 					<label for="saveId">ID 저장하기</label>
 				</td>
 			</tr>
