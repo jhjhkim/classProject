@@ -21,5 +21,13 @@ public class Member {
 	public String getHello() {
 		return "안녕하세요! Member 객체의 getHello() 메소드가 호출되었습니다.";
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 	
 }
