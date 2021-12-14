@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>index.jsp</h1>
+	<h3>
+		<a href="${pageContext.request.contextPath}/member/loginform.do">로그인</a> <br>
+		<a href="${pageContext.request.contextPath}/member/mypage.do">my page</a>
+	</h3>
 </body>
 </html>
