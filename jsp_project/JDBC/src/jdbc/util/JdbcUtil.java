@@ -30,16 +30,6 @@ public class JdbcUtil {
 		}
 	}
 	
-	public static void close(PreparedStatement pstmt) {
-		if(pstmt != null) {
-			try {
-				pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
 	public static void close(ResultSet rs) {
 		if(rs != null) {
 			try {

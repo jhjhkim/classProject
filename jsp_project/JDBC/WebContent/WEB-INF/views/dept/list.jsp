@@ -31,6 +31,20 @@
 		text-align: center;
 	}
 </style>
+
+<script>
+function deleteDept(deptno){
+	
+	if(confirm('삭제하시겠습니까?')){
+		// 삭제처리할 수 있는 url 이동
+		// http://localhost:8080/jdbc/dept/delete.do?deptno=
+		location.href='delete.do?deptno='+deptno;
+		// alert(deptno + " 삭제");
+	}
+}
+
+</script>
+
 </head>
 <body>
 
@@ -57,7 +71,11 @@
 					<td>${dept.deptno}</td>
 					<td>${dept.dname}</td>
 					<td>${dept.loc}</td>
-					<td><a>수정</a> | <a>삭제</a></td>
+					<td>
+						<a href="edit.do?deptno=${dept.deptno}">수정</a>
+						 | 
+						<a href="javascript:deleteDept(${dept.deptno})">삭제</a>
+					</td>
 				</tr>
 			</c:forEach>
 

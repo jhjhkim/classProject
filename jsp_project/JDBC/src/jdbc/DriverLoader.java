@@ -10,7 +10,7 @@ public class DriverLoader extends HttpServlet {
        
 	public void init(ServletConfig config) throws ServletException {
 
-		// 외부에서 경로가 바뀌어도 괜찮도록 (-> web.xml에서 변경하면 된다)
+		// 외부에서 경로가 바뀌어도 괜찮도록 (-> web.xml에서 변경하면 된다) 외부 문자열 읽어오기
 		String driver = config.getInitParameter("driver");
 		
 		// DB 드라이버 로드
