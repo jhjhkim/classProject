@@ -1,0 +1,4 @@
+#설정파일에 등록 -> Command 클래스 생성 -> view(JSP) 생성
+#요청경로=실행클래스이름
+/member/index.do=member.command.MemberIndexCommandImpl
+/member/reg.do=member.command.MemberRegCommandImpl
