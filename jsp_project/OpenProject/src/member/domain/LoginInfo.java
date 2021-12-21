@@ -1,0 +1,29 @@
+package member.domain;
+
+public class LoginInfo {
+
+	private String userId;
+	private String userName;
+	private String photo;
+	
+	public LoginInfo(String userId, String userName, String photo) {
+		this.userId = userId;
+		this.userName = userName;
+		this.photo = photo;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+	
+	
+	
+}

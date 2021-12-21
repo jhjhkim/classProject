@@ -7,9 +7,40 @@
 
 header {
 	padding: 20px;
+	position: relative;
 }
 header>h1 {
 	font-style: italic;
+}
+header>div {
+	height: 50px;
+	
+	text-align: right;
+	
+	position: absolute;
+	right: 20px;
+	top: 5px;	
+}
+header>div img {
+	height: 30px;
+	
+	border: 2px solid #aaa;
+	border-radius: 50%;
+}
+header>div>table td {
+	padding: 0 5px;
+}
+header>div a {
+	padding: 0 3px;
+	font-size: 12px;
+	font-weight: bold;
+	
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	
+	background-color: #eee;
+	
+	text-decoration: none;
 }
 
 nav {
