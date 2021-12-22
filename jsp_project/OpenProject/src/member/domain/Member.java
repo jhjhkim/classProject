@@ -80,5 +80,11 @@ public class Member {
 	public LoginInfo getLoginInfo() {
 		return new LoginInfo(this.userid, this.username, this.photo);
 	}
+
+	@Override
+	public String toString() {
+		return "Member [idx=" + idx + ", userid=" + userid + ", pw=" + pw + ", username=" + username + ", regdate="
+				+ regdate + ", photo=" + photo + "]";
+	}
 	
 }

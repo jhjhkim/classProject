@@ -4,7 +4,7 @@
 <nav>
 	<ul>
 		<li><a href="${pageContext.request.contextPath}/member/reg.do">회원가입</a></li>
-		<li><a href="${pageContext.request.contextPath}/member/list.do">회원 리스트</a></li>
+		<li><a href="${pageContext.request.contextPath}/member/manager/list.do">회원 리스트</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/my/mypage.do">마이페이지</a></li>
 
 		<c:if test="${empty loginInfo}">

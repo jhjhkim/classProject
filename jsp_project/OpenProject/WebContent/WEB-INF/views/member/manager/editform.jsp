@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>My Page</title>
+<title>회원 수정</title>
 
 <%@ include file="/WEB-INF/views/frame/pageset.jsp"%>
 
@@ -16,6 +15,10 @@
 }
 #content>form input {
 	padding: 5px;
+}
+
+#oldfile {
+	height: 50px;
 }
 </style>
 
@@ -32,34 +35,46 @@
 
 	<!-- content 시작 -->
 	<div id="content">
-		<h3>회원 정보</h3>
+		<h3>회원 수정</h3>
 		<hr>
-		
+		<form method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>아이디</td>
-					<td>${member.userid}</td>
+					<td>
+						<input type="hidden" name="idx" value="${member.idx}">
+						<input type="text" name="userid" value="${member.userid}" readonly>
+					</td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td>${member.pw}</td>
+					<td><input type="password" name="pw" value="${member.pw}"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인</td>
+					<td><input type="password" value="${member.pw}"></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td>${member.username}</td>
+					<td><input type="text" name="username" value="${member.username}"></td>
 				</tr>
 				<tr>
 					<td>사진</td>
 					<td>
-						<img src="${pageContext.request.contextPath}/uploadfile/${member.photo}" height="100px">
+						현재 파일 : 
+						<c:if test="${not empty member.photo}">
+						<img id="oldfile" src="${pageContext.request.contextPath}/uploadfile/${member.photo}"><br>
+						</c:if>
+						<input type="hidden" name="oldfile" value="${member.photo}">
+						<input type="file" name="photo">
 					</td>
 				</tr>
 				<tr>
-					<td>가입일</td>
-					<td>${member.regdate}</td>
+					<td></td>
+					<td><input type="submit" value="수정"> <input type="reset"></td>
 				</tr>
 			</table>
-		
+		</form>
 	
 	</div>
 	<!-- content 끝 -->

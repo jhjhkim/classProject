@@ -24,7 +24,7 @@ public class MyPageCommandImpl implements Command {
 			request.setAttribute("member", MyPageService.getInstance().myPageInfo(request));
 		}
 		
-		request.setAttribute("loginChk", loginChk);
+		// request.setAttribute("loginChk", loginChk);
 		
 		return "/WEB-INF/views/member/my/mypage.jsp";
 	}
