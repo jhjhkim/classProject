@@ -16,3 +16,7 @@
 /member/manager/edit.do=member.command.MemberEditCommandImpl
 # Member Delete
 /member/manager/delete.do=member.command.MemberDeleteCommandImpl
+# Guestbook Write
+/guestbook/write.do=guestbook.command.GuestbookWriteCommandImpl
+# Guestbook List
+/guestbook/list.do=guestbook.command.GuestbookListCommandImpl

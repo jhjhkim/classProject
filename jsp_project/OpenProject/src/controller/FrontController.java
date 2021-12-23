@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import member.command.BadRequestCommandImpl;
-import member.command.Command;
+import command.Command;
 
 public class FrontController extends HttpServlet {
 

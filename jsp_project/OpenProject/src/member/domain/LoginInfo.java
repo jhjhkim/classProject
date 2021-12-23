@@ -2,14 +2,20 @@ package member.domain;
 
 public class LoginInfo {
 
+	private int idx;
 	private String userId;
 	private String userName;
 	private String photo;
 	
-	public LoginInfo(String userId, String userName, String photo) {
+	public LoginInfo(int idx, String userId, String userName, String photo) {
+		this.idx = idx;
 		this.userId = userId;
 		this.userName = userName;
 		this.photo = photo;
+	}
+	
+	public int getIdx() {
+		return idx;
 	}
 
 	public String getUserId() {

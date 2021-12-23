@@ -78,7 +78,7 @@ public class Member {
 	}
 
 	public LoginInfo getLoginInfo() {
-		return new LoginInfo(this.userid, this.username, this.photo);
+		return new LoginInfo(this.idx, this.userid, this.username, this.photo);
 	}
 
 	@Override
