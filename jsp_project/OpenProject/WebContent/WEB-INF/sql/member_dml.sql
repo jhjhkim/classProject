@@ -19,3 +19,6 @@ INSERT INTO member (userid, password, username, photo) VALUES (?,?,?,?);
 
 -- update
 UPDATE member SET password=?, username=?, photo=? WHERE idx = ?;
+
+-- delete
+DELETE FROM member WHERE idx=?;
