@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import guestbook.dao.GuestbookDao;
 import guestbook.domain.GuestRequest;
 import jdbc.ConnectionProvider;
+import jdbc.util.JdbcUtil;
 
 public class GuestbookWriteService {
 
@@ -34,6 +35,8 @@ public class GuestbookWriteService {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn);
 		}
 		
 		return resultCnt;

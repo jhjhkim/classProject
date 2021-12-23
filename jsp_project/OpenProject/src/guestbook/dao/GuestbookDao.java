@@ -14,6 +14,7 @@ public class GuestbookDao {
 	public static GuestbookDao getInstance() {
 		return dao;
 	}
+	
 	public int insertGuestbook(Connection conn, GuestRequest gRequest) throws SQLException {
 		int resultCnt = 0;
 		
@@ -32,7 +33,5 @@ public class GuestbookDao {
 		
 		return resultCnt;
 	}
-	
-	
 	
 }
