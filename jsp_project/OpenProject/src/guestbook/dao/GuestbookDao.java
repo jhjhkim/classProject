@@ -2,9 +2,15 @@ package guestbook.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import guestbook.domain.GuestRequest;
+import guestbook.domain.Guestbook;
+import guestbook.domain.GuestbookListView;
 import jdbc.util.JdbcUtil;
 
 public class GuestbookDao {
@@ -33,5 +39,55 @@ public class GuestbookDao {
 		
 		return resultCnt;
 	}
+
+	public List<Guestbook> selectList(Connection conn, int index, int count) throws SQLException {
+		List<Guestbook> list = new ArrayList<Guestbook>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM guestbook LIMIT ?,?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, index);
+			pstmt.setInt(2, count);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(getGuestbook(rs));
+			}
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return list;
+	}
 	
+	private Guestbook getGuestbook(ResultSet rs) throws SQLException {
+		return new Guestbook(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+	}
+
+	public int selectTotalCount(Connection conn) throws SQLException {
+		int totalCnt = 0;
+		
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT COUNT(*) FROM guestbook";
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				totalCnt = rs.getInt(1);
+			}
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(stmt);
+		}
+		
+		return totalCnt;
+	}
 }

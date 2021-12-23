@@ -78,7 +78,50 @@
 
 	<!-- content 시작 -->
 	<div id="content">
-		<h3>방명록 리스트가 출력될 곳입니다.</h3>
+		<h3>방명록 리스트</h3>
+		<hr>
+		<div id="listInfo">
+			전체 게시물 수: ${listView.totalCount}개 , 현재 페이지: ${listView.currentPage}/${listView.totalPageCount}
+		</div>
+		<table>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>작성일시</th>
+			</tr>
+			
+			<c:if test="${empty listView.list}">
+			<tr>
+				<td colspan="4">등록된 방명록이 없습니다.</td>
+			</tr>
+			</c:if>
+			
+			<c:if test="${not empty listView.list}">
+			<c:forEach items="${listView.list}" var="guestbook">
+			<tr>
+				<td>${guestbook.idx}</td>
+				<td>
+					<a href="#">${guestbook.subject}</a>
+				</td>
+				<td>
+					<!-- 글쓴이의 idx를 어떻게 이름이나 아이디로 바꿀 수 있을까? -->
+					${guestbook.memberidx}
+				</td>
+				<td>${guestbook.regdate}</td>
+			</tr>
+			</c:forEach>
+			</c:if>
+		</table>
+		<div id="paging">
+			<c:if test="${listView.totalPageCount > 0}">
+			
+			<c:forEach begin="1" end="${listView.totalPageCount}" var="pnum">
+				<a href="list.do?p=${pnum}" class="${listView.currentPage eq pnum ? 'curPage' : ''}">${pnum}</a>  
+			</c:forEach>
+			
+			</c:if>
+		</div>
 	</div>
 	<!-- content 끝 -->
 
