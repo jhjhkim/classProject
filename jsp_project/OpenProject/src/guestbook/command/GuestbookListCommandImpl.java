@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import guestbook.service.GuestbookListService;
-import guestbook.service.GuestbookWriteService;
 import command.Command;
 
 public class GuestbookListCommandImpl implements Command {

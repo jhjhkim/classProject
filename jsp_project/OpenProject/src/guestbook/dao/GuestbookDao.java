@@ -10,7 +10,7 @@ import java.util.List;
 
 import guestbook.domain.GuestRequest;
 import guestbook.domain.Guestbook;
-import guestbook.domain.GuestbookListView;
+import guestbook.domain.GuestbookMessage;
 import jdbc.util.JdbcUtil;
 
 public class GuestbookDao {
@@ -40,6 +40,7 @@ public class GuestbookDao {
 		return resultCnt;
 	}
 
+	/*
 	public List<Guestbook> selectList(Connection conn, int index, int count) throws SQLException {
 		List<Guestbook> list = new ArrayList<Guestbook>();
 		
@@ -63,6 +64,60 @@ public class GuestbookDao {
 		}
 		
 		return list;
+	}
+	*/
+	
+	public List<GuestbookMessage> selectList(Connection conn, int index, int count) throws SQLException {
+		List<GuestbookMessage> list = new ArrayList<GuestbookMessage>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT g.idx as idx, g.subject as subject, g.content as content, m.photo as photo, m.username as username, g.regdate as regdate, m.idx as memberidx FROM guestbook g join member m ON g.memberidx = m.idx ORDER BY regdate DESC LIMIT ?,?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, index);
+			pstmt.setInt(2, count);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(getGuestbookMessage(rs));
+			}
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	public GuestbookMessage selectByIdx(Connection conn, int idx) throws SQLException {
+		GuestbookMessage result = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT g.idx as idx, g.subject as subject, g.content as content, m.photo as photo, m.username as username, g.regdate as regdate, m.idx as memberidx FROM guestbook g join member  ON g.memberidx = m.idx WHERE idx = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = getGuestbookMessage(rs);
+			}
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	private GuestbookMessage getGuestbookMessage(ResultSet rs) throws SQLException {
+		return new GuestbookMessage(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7));
 	}
 	
 	private Guestbook getGuestbook(ResultSet rs) throws SQLException {

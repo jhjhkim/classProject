@@ -11,6 +11,11 @@
 
 <style>
 
+#listInfo{
+	border: 1px solid #aaa;
+	width: 870px;
+}
+
 #content>div {
 	padding: 15px;
 }
@@ -26,10 +31,16 @@
 	
 	text-align: center;
 }
-
-#listInfo{
-	border: 1px solid #aaa;
-	width: 870px;
+#content>table td:first-child {
+	width: 50px;
+}
+#content>table td:last-child {
+	width: 180px;
+}
+#content>table img {
+	height: 30px;
+	border: 2px solid #aaa;
+	border-radius: 50%;
 }
 
 #paging {
@@ -98,17 +109,17 @@
 			</c:if>
 			
 			<c:if test="${not empty listView.list}">
-			<c:forEach items="${listView.list}" var="guestbook">
+			<c:forEach items="${listView.list}" var="message">
 			<tr>
-				<td>${guestbook.idx}</td>
+				<td>${message.idx}</td>
 				<td>
-					<a href="#">${guestbook.subject}</a>
+					<a href="view.do?idx=${message.idx}">${message.subject}</a>
 				</td>
 				<td>
-					<!-- 글쓴이의 idx를 어떻게 이름이나 아이디로 바꿀 수 있을까? -->
-					${guestbook.memberidx}
+					<img src="${pageContext.request.contextPath}/uploadfile/${message.photo}">
+					${message.username}
 				</td>
-				<td>${guestbook.regdate}</td>
+				<td>${message.regdate}</td>
 			</tr>
 			</c:forEach>
 			</c:if>

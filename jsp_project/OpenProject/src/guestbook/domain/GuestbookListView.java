@@ -8,9 +8,9 @@ public class GuestbookListView {
 	private int totalCount;		// 총 게시물 수
 	private int countPerPage;	// 페이지 당 출력할 게시물 수
 	private int currentPage;	// 현재 페이지 번호
-	private List<Guestbook> list;	// 출력할 방명록 게시물 리스트
+	private List<GuestbookMessage> list;	// 출력할 방명록 게시물 리스트
 	
-	public GuestbookListView(int totalCount, int countPerPage, int currentPage, List<Guestbook> list) {
+	public GuestbookListView(int totalCount, int countPerPage, int currentPage, List<GuestbookMessage> list) {
 		this.totalCount = totalCount;
 		this.countPerPage = countPerPage;
 		this.currentPage = currentPage;
@@ -41,7 +41,7 @@ public class GuestbookListView {
 		return currentPage;
 	}
 
-	public List<Guestbook> getList() {
+	public List<GuestbookMessage> getList() {
 		return list;
 	}
 

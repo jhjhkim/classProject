@@ -20,3 +20,5 @@
 /guestbook/write.do=guestbook.command.GuestbookWriteCommandImpl
 # Guestbook List
 /guestbook/list.do=guestbook.command.GuestbookListCommandImpl
+# Guestbook View
+/guestbook/view.do=guestbook.command.GuestbookViewCommandImpl
