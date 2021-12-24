@@ -8,15 +8,17 @@ public class GuestbookMessage {
 	private String photo;
 	private String username;
 	private String regdate;
+	private String updatedate;
 	private int memberidx;
 	
-	public GuestbookMessage(int idx, String subject, String content, String photo, String username, String regdate, int memberidx) {
+	public GuestbookMessage(int idx, String subject, String content, String photo, String username, String regdate, String updatedate, int memberidx) {
 		this.idx = idx;
 		this.subject = subject;
 		this.content = content;
 		this.photo = photo;
 		this.username = username;
 		this.regdate = regdate;
+		this.updatedate =updatedate;
 		this.memberidx = memberidx;
 	}
 
@@ -44,6 +46,10 @@ public class GuestbookMessage {
 		return regdate;
 	}
 
+	public String getUpdatedate() {
+		return updatedate;
+	}
+
 	public int getMemberidx() {
 		return memberidx;
 	}
@@ -51,7 +57,8 @@ public class GuestbookMessage {
 	@Override
 	public String toString() {
 		return "GuestbookMessage [idx=" + idx + ", subject=" + subject + ", content=" + content + ", photo=" + photo
-				+ ", username=" + username + ", regdate=" + regdate + ", memberidx=" + memberidx + "]";
+				+ ", username=" + username + ", regdate=" + regdate + ", updatedate=" + updatedate + ", memberidx="
+				+ memberidx + "]";
 	}
-	
+
 }

@@ -6,16 +6,18 @@ public class Guestbook {
 	private String subject;
 	private String content;
 	private String regdate;
+	private String updatedate;
 	private int memberidx;
 	
 	public Guestbook() {}
 
-	public Guestbook(int idx, String subject, String content, String regdate, int memberidx) {
+	public Guestbook(int idx, String subject, String content, String regdate, String updatedate, int memberidx) {
 		super();
 		this.idx = idx;
 		this.subject = subject;
 		this.content = content;
 		this.regdate = regdate;
+		this.updatedate = updatedate;
 		this.memberidx = memberidx;
 	}
 
@@ -51,6 +53,14 @@ public class Guestbook {
 		this.regdate = regdate;
 	}
 
+	public String getUpdatedate() {
+		return updatedate;
+	}
+
+	public void setUpdatedate(String updatedate) {
+		this.updatedate = updatedate;
+	}
+
 	public int getMemberidx() {
 		return memberidx;
 	}
@@ -62,9 +72,7 @@ public class Guestbook {
 	@Override
 	public String toString() {
 		return "Guestbook [idx=" + idx + ", subject=" + subject + ", content=" + content + ", regdate=" + regdate
-				+ ", memberidx=" + memberidx + "]";
-	}
-	
-	
+				+ ", updatedate=" + updatedate + ", memberidx=" + memberidx + "]";
+	}	
 	
 }

@@ -15,6 +15,7 @@ CREATE TABLE `project`.`GuestBook` (
 	`subject`   VARCHAR(50) NOT NULL, -- 제목
 	`content`   TEXT        NOT NULL, -- 내용
 	`regdate`   TIMESTAMP   NULL,     -- 작성일시
+    `updatedate` TIMESTAMP  NULL,     -- 수정일시
 	`memberidx` INT         NOT NULL  -- 회원고유번호
 );
 

@@ -1,15 +1,15 @@
 package guestbook.domain;
 
-public class GuestRequest {
+public class GuestEditRequest {
 
 	private String subject;
 	private String content;
-	private int memberidx;
+	private int idx;
 	
-	public GuestRequest(String subject, String content, int memberidx) {
+	public GuestEditRequest(String subject, String content, int idx) {
 		this.subject = subject;
 		this.content = content;
-		this.memberidx = memberidx;
+		this.idx = idx;
 	}
 
 	public String getSubject() {
@@ -28,15 +28,15 @@ public class GuestRequest {
 		this.content = content;
 	}
 
-	public int getMemberidx() {
-		return memberidx;
+	public int getIdx() {
+		return idx;
 	}
 
-	public void setMemberidx(int memberidx) {
-		this.memberidx = memberidx;
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 	
 	public Guestbook getGuestbook() {
-		return new Guestbook(0, this.subject, this.content, null, null, this.memberidx);
+		return new Guestbook(0, this.subject, this.content, null, null, this.idx);
 	}
 }

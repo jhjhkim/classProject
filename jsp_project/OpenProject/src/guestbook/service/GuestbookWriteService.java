@@ -23,7 +23,7 @@ public class GuestbookWriteService {
 		int resultCnt = 0;
 		
 		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
+		String content = request.getParameter("content").replace("\r\n", "<br>");
 		String memberidx = request.getParameter("memberidx");
 		
 		Connection conn = null;

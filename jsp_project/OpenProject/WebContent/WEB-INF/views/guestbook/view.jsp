@@ -28,6 +28,7 @@
 
 #regdate {
 	float: right;
+	text-align: right;
 }
 
 </style>
@@ -56,6 +57,10 @@
 					${message.username}
 					<div id="regdate">
 						작성일시 ${message.regdate}
+						<c:if test="${message.updatedate != null}">
+						<br>
+						최근수정일시 ${message.updatedate}
+						</c:if>
 					</div>
 				</td>
 			</tr>
@@ -70,8 +75,8 @@
 		
 		<!-- 수정/삭제 버튼 -->
 		<c:if test="${message.memberidx eq loginInfo.idx}">
-			<a href="#">수정</a>
-			<a href="#">삭제</a>
+			<a href="edit.do?idx=${message.idx}">수정</a>
+			<a href="delete.do?idx=${message.idx}">삭제</a>
 		</c:if>
 	
 	</div>
