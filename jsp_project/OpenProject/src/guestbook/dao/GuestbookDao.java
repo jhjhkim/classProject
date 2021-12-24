@@ -97,7 +97,7 @@ public class GuestbookDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT g.idx as idx, g.subject as subject, g.content as content, m.photo as photo, m.username as username, g.regdate as regdate, m.idx as memberidx FROM guestbook g join member m ON g.memberidx = m.idx WHERE idx = ?";
+		String sql = "SELECT g.idx as idx, g.subject as subject, g.content as content, m.photo as photo, m.username as username, g.regdate as regdate, m.idx as memberidx FROM guestbook g join member m ON g.memberidx = m.idx WHERE g.idx = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
