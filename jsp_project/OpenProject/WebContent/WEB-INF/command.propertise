@@ -4,6 +4,10 @@
 /member/index.do=member.command.MemberIndexCommandImpl
 # Member Reg : form page
 /member/reg.do=member.command.MemberRegCommandImpl
+
+# Member idcheck
+/member/checkid.do=member.command.CheckIdCommandImpl
+
 # Login
 /member/login.do=member.command.LoginCommandImpl
 # Logout
@@ -16,6 +20,9 @@
 /member/manager/edit.do=member.command.MemberEditCommandImpl
 # Member Delete
 /member/manager/delete.do=member.command.MemberDeleteCommandImpl
+
+#####################################################################
+
 # Guestbook Write
 /guestbook/write.do=guestbook.command.GuestbookWriteCommandImpl
 # Guestbook List
@@ -24,3 +31,7 @@
 /guestbook/view.do=guestbook.command.GuestbookViewCommandImpl
 # Guestbook Edit
 /guestbook/edit.do=guestbook.command.GuestbookEditCommandImpl
+# Guestbook Delete
+/guestbook/delete.do=guestbook.command.GuestbookDeleteCommandImpl
+
+/guestbook/writeajax.do=guestbook.command.GuestbookWriteAjaxCommandImpl
