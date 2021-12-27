@@ -14,6 +14,9 @@ select count(*) from member;
 
 select * from member where idx=?;
 
+-- 아이디 중복체크를 위한 sql
+SELECT count(*) FROM member WHERE userid=?;
+
 -- insert
 INSERT INTO member (userid, password, username, photo) VALUES (?,?,?,?);
 
