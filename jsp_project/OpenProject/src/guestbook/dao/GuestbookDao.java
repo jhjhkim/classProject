@@ -186,4 +186,21 @@ public class GuestbookDao {
 		return resultCnt;
 	}
 
+	public int deleteGuestbook(Connection conn, int index) throws SQLException {
+		int resultCnt = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM guestbook WHERE idx=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, index);
+			resultCnt = pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		return resultCnt;
+	}
+
 }
