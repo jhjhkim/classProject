@@ -36,9 +36,8 @@ DELETE FROM guestbook WHERE idx=?;
 INSERT INTO reply (content, memberidx, guestbookidx) VALUES (?,?,?);
 
 -- reply select : join
-SELECT
-r.idx as idx, r.content as content, r.regdate as regdate, r.guestbookidx as guestbookidx, m.idx as memberidx, m.username as username, m.photo as photo
-FROM reply r JOIN member m
-ON r.memberidx = m.idx
-WHERE guestbookidx = ?
+SELECT r.idx, r.content, r.regdate, r.guestbookidx, r.memberidx, m.username, m.photo FROM reply r JOIN member m ON r.memberidx = m.idx WHERE guestbookidx = ?
 ;
+
+-- reply delete
+DELETE FROM reply WHERE idx=?;
