@@ -3,6 +3,8 @@ package guestbook.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import guestbook.dao.GuestbookDao;
 import guestbook.domain.GuestbookMessage;
 import jdbc.ConnectionProvider;
@@ -19,13 +21,14 @@ public class GuestbookViewService {
 		return service;
 	}
 
-	public GuestbookMessage getMessage(int idx) {
+	public GuestbookMessage getMessage(HttpServletRequest request) {
+		String idx = request.getParameter("idx");
 		GuestbookMessage message = null;
 		Connection conn = null;
 
 		try {
 			conn = ConnectionProvider.getConnection();
-			message = GuestbookDao.getInstance().selectByIdx(conn, idx);
+			message = GuestbookDao.getInstance().selectByIdx(conn, Integer.parseInt(idx));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

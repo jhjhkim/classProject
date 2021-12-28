@@ -24,3 +24,21 @@ WHERE g.idx=?
 
 -- insert
 INSERT INTO guestbook (subject, content, memberidx) VALUES (?,?,?);
+
+-- update
+UPDATE guestbook SET subject=?, content=?, updatedate=CURRENT_TIMESTAMP WHERE idx=?;
+
+-- delete
+DELETE FROM guestbook WHERE idx=?;
+
+
+-- reply insert
+INSERT INTO reply (content, memberidx, guestbookidx) VALUES (?,?,?);
+
+-- reply select : join
+SELECT
+r.idx as idx, r.content as content, r.regdate as regdate, r.guestbookidx as guestbookidx, m.idx as memberidx, m.username as username, m.photo as photo
+FROM reply r JOIN member m
+ON r.memberidx = m.idx
+WHERE guestbookidx = ?
+;

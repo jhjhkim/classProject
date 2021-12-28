@@ -38,7 +38,7 @@
 				type : 'post',
 				data : $('#writeform').serializeArray(),
 				success : function(data){
-					if(data == "Y"){
+					if(data == 1){
 						alert('방명록을 등록하였습니다.');
 						location.href='${pageContext.request.contextPath}/guestbook/list.do';
 					} else {

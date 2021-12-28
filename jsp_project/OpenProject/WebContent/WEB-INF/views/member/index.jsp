@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>OPEN PROJECT</title>
 
 <%@ include file="/WEB-INF/views/frame/pageset.jsp"%>
 

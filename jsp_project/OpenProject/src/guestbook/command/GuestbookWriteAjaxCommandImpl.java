@@ -13,7 +13,7 @@ public class GuestbookWriteAjaxCommandImpl implements Command {
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		
 		if(request.getMethod().equals("POST")) {
-			request.setAttribute("result", GuestbookWriteService.getInstance().insertGuestbook(request, response)==1 ? "Y" : "N");
+			request.setAttribute("result", GuestbookWriteService.getInstance().insertGuestbook(request, response));
 		}
 		
 		return "/WEB-INF/views/guestbook/writeajax.jsp";
