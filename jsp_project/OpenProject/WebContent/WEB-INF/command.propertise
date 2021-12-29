@@ -3,8 +3,13 @@
 
 # Member Index
 /member/index.do=member.command.MemberIndexCommandImpl
+
 # Member Reg : form page
 /member/reg.do=member.command.MemberRegCommandImpl
+
+# Member Reg => ajax
+/member/reg2.do=member.command.MemberRegCommandImpl2
+
 # Member idcheck
 /member/checkid.do=member.command.CheckIdCommandImpl
 
@@ -38,5 +43,10 @@
 
 # Guestbook Reply Write
 /guestbook/reply/write.do=guestbook.command.GuestbookReplyWriteCommandImpl
+# Guestbook Reply Write : 응답데이터가 html
+/guestbook/reply/write2.do=guestbook.command.GuestbookReplyWriteCommandImpl
+# Guestbook Reply Write : 응답데이터가 JSON
+/guestbook/reply/write3.do=guestbook.command.GuestbookReplyWriteCommandImpl
+
 # Guestbook Reply Delete
 /guestbook/reply/delete.do=guestbook.command.GuestbookReplyDeleteCommandImpl

@@ -162,7 +162,7 @@ div.reply>div.close>div {
 			<div id="replyWrite">
 				<h4>${loginInfo.userName}</h4>
 				<form id="replyWriteForm">
-					<textarea name="replyMessage" rows="5" cols="30"></textarea>
+					<textarea name="replyMessage" id="replyMessage" rows="5" cols="30"></textarea>
 					<input type="hidden" name="memberIdx" value="${loginInfo.idx}">
 					<input type="hidden" name="guestbookIdx" value="${message.idx}">
 					<br> <input type="submit" value="작성">
@@ -172,9 +172,10 @@ div.reply>div.close>div {
 
 		<!-- 수정/삭제 버튼 -->
 		<div class="viewpagemenu">
+			<a href="list.do">목록</a>
 			<c:if test="${message.memberidx eq loginInfo.idx}">
 				<a href="edit.do?idx=${message.idx}">수정</a>
-				<a href="delete.do?idx=${message.idx}">삭제</a>
+				<a href="javascript:deleteMessage(${message.idx})">삭제</a>
 			</c:if>
 		</div>
 
@@ -191,18 +192,52 @@ div.reply>div.close>div {
 			$('#replyWriteForm').submit(function() {
 
 				$.ajax({
-					url : 'reply/write.do',
+					url : 'reply/write3.do',
 					type : 'POST',
 					data : $(this).serialize(),
 					success : function(data) {
 
-						if (data == 1) {
-							console.log(data);
+					$('#replyList').html('');
+						
+						// 현재 data -> 자바스크립트의 객체
+						$.each(data, function(index, item){
+							
+							var html = '';
+							html += '<div id="reply'+item.idx+'" class="reply">';
+							html += '<div class="img">';
+							html += '	<img src="/op/uploadfile/'+item.photo+'">';
+							html += '</div>';
+							html += '<div class="content">';
+							html += '	<h4>'+item.userName+'</h4>';
+							html += '	<div>';
+							html += '		<pre>'+item.content+'</pre>';
+							html += '	</div>';
+							html += '	<div>'+item.regdate+'</div>';
+							html += '</div>';
+							html += '<div class="close">';
+							html += '	<div onclick="deleteReply('+item.idx+')">X</div>';
+							html += '</div>';
+							html += '</div>';
+							
+							$('#replyList').append(html);
+							
+							$('#message').val('');
+							
+						});
+						
+						// 응답이 html 일때 처리
+						//$('#replyList').html(data);
+
+						// 입력처리 여부만 판단 -> view.do
+						if (data == '1') {
 							alert('등록 성공');
-							location.href = 'view.do?idx=${message.idx}';
+							//location.href = 'view.do?idx=${pageView.idx}';
+							// 1. 화면에 출력할 html 응답
+							// 2. 화면에 출력할 데이터 JSON 받고 파싱
 						} else {
-							alert('등록 실패')
+							alert('등록 실패');
 						}
+						
 					},
 					error : function() {
 						console.log('연결 오류');
