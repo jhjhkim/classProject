@@ -12,9 +12,12 @@ public class GuestbookDeleteCommandImpl implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
-				
+		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		int memberIdx = Integer.parseInt(request.getParameter("memberIdx"));		
+		
 		try {
-			request.setAttribute("result", GuestbookDeleteService.getInstance().deleteGuestbook(request));
+			request.setAttribute("result", GuestbookDeleteService.getInstance().deleteGuestbook(idx, memberIdx));
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 		}

@@ -19,11 +19,8 @@ public class GuestbookDeleteService {
 		return service;
 	}
 	
-	public int deleteGuestbook(HttpServletRequest request) throws SQLException {
+	public int deleteGuestbook(int idx, int memberIdx) throws SQLException {
 		int resultCnt = 0;
-		
-		int idx = Integer.parseInt(request.getParameter("idx"));
-		int memberIdx = Integer.parseInt(request.getParameter("memberIdx"));
 		
 		Connection conn = null;
 		

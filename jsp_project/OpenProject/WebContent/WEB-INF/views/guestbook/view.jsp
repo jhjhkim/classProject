@@ -277,6 +277,9 @@ div.reply>div.close>div {
 						if(data == '1'){
 							alert('방명록이 삭제되었습니다.');
 							location.href='list.do';
+						} else{
+							alert('문제가 발생했습니다. 다시 시도해주세요.');
+							location.href='list.do';
 						}
 					},
 					error : function(){
