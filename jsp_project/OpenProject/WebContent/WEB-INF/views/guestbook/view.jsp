@@ -190,14 +190,14 @@ div.reply>div.close>div {
 		$(document).ready(function() {
 
 			$('#replyWriteForm').submit(function() {
-
+				
 				$.ajax({
 					url : 'reply/write3.do',
 					type : 'POST',
 					data : $(this).serialize(),
 					success : function(data) {
-
-					$('#replyList').html('');
+						console.log(data);
+						$('#replyList').html('');
 						
 						// 현재 data -> 자바스크립트의 객체
 						$.each(data, function(index, item){
@@ -220,8 +220,7 @@ div.reply>div.close>div {
 							html += '</div>';
 							
 							$('#replyList').append(html);
-							
-							$('#message').val('');
+							$('#replyMessage').val('');
 							
 						});
 						
@@ -229,15 +228,15 @@ div.reply>div.close>div {
 						//$('#replyList').html(data);
 
 						// 입력처리 여부만 판단 -> view.do
-						if (data == '1') {
+ 						/* if (data == '1') {
 							alert('등록 성공');
 							//location.href = 'view.do?idx=${pageView.idx}';
 							// 1. 화면에 출력할 html 응답
 							// 2. 화면에 출력할 데이터 JSON 받고 파싱
 						} else {
 							alert('등록 실패');
-						}
-						
+						} */
+ 
 					},
 					error : function() {
 						console.log('연결 오류');
@@ -245,26 +244,43 @@ div.reply>div.close>div {
 				});
 
 				return false;
-				
 			});
-			
+
 		});
 		
 		function deleteReply(idx){
 			
 			if(confirm('댓글을 삭제하시겠습니까?')){
 				
+				//$('#reply'+idx).remove();
+				
 				$.ajax({
-					url: 'reply/delete.do',
-					type: 'post',
-					data: {idx : idx},
-					success: function(data){
-						if(data==1){
+					url : 'reply/delete.do',
+					type : 'post',
+					data : {idx : idx},
+					success : function(data){
+						if(data == '1'){
 							$('#reply'+idx).remove();
 						}
+					}
+				});
+			}
+		}
+		
+		function deleteMessage(idx){
+			if(confirm('방명록을 삭제하시겠습니까?')){
+				$.ajax({
+					url : 'delete.do',
+					type : 'post',
+					data : {idx : idx},
+					success : function(data){
+						if(data == '1'){
+							alert('방명록이 삭제되었습니다.');
+							location.href='list.do';
+						}
 					},
-					error: function(){
-						console.log('연결 오류');
+					error : function(){
+						console.log('오류 발생');
 					}
 				});
 			}

@@ -36,17 +36,19 @@
 /guestbook/list.do=guestbook.command.GuestbookListCommandImpl
 # Guestbook View
 /guestbook/view.do=guestbook.command.GuestbookViewCommandImpl
+
 # Guestbook Edit
 /guestbook/edit.do=guestbook.command.GuestbookEditCommandImpl
+
 # Guestbook Delete
 /guestbook/delete.do=guestbook.command.GuestbookDeleteCommandImpl
 
 # Guestbook Reply Write
 /guestbook/reply/write.do=guestbook.command.GuestbookReplyWriteCommandImpl
 # Guestbook Reply Write : 응답데이터가 html
-/guestbook/reply/write2.do=guestbook.command.GuestbookReplyWriteCommandImpl
+/guestbook/reply/write2.do=guestbook.command.GuestbookReplyWriteCommandImpl2
 # Guestbook Reply Write : 응답데이터가 JSON
-/guestbook/reply/write3.do=guestbook.command.GuestbookReplyWriteCommandImpl
+/guestbook/reply/write3.do=guestbook.command.GuestbookReplyWriteCommandImpl3
 
 # Guestbook Reply Delete
 /guestbook/reply/delete.do=guestbook.command.GuestbookReplyDeleteCommandImpl
