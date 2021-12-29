@@ -29,7 +29,7 @@ INSERT INTO guestbook (subject, content, memberidx) VALUES (?,?,?);
 UPDATE guestbook SET subject=?, content=?, updatedate=CURRENT_TIMESTAMP WHERE idx=?;
 
 -- delete
-DELETE FROM guestbook WHERE idx=?;
+DELETE FROM guestbook WHERE idx=? AND memberidx=?;
 
 
 -- reply insert

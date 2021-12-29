@@ -175,7 +175,7 @@ div.reply>div.close>div {
 			<a href="list.do">목록</a>
 			<c:if test="${message.memberidx eq loginInfo.idx}">
 				<a href="edit.do?idx=${message.idx}">수정</a>
-				<a href="javascript:deleteMessage(${message.idx})">삭제</a>
+				<a href="javascript:deleteMessage(${message.idx}, ${loginInfo.idx})">삭제</a>
 			</c:if>
 		</div>
 
@@ -267,12 +267,12 @@ div.reply>div.close>div {
 			}
 		}
 		
-		function deleteMessage(idx){
+		function deleteMessage(idx, memberIdx){
 			if(confirm('방명록을 삭제하시겠습니까?')){
 				$.ajax({
 					url : 'delete.do',
 					type : 'post',
-					data : {idx : idx},
+					data : {idx : idx, memberIdx : memberIdx},
 					success : function(data){
 						if(data == '1'){
 							alert('방명록이 삭제되었습니다.');

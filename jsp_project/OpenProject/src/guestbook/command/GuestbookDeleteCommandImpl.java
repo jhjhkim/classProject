@@ -13,9 +13,8 @@ public class GuestbookDeleteCommandImpl implements Command {
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 				
-		String index = request.getParameter("idx");
 		try {
-			request.setAttribute("result", GuestbookDeleteService.getInstance().deleteGuestbook(Integer.parseInt(index)));
+			request.setAttribute("result", GuestbookDeleteService.getInstance().deleteGuestbook(request));
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 		}
