@@ -31,6 +31,8 @@ public class ChangePasswordService {
 		member.changePassword(oldPw, newPw);
 		
 		dao.update(member);
+		
+		System.out.println("비밀번호가 변경되었습니다.");
 	}
 	
 
