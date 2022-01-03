@@ -11,15 +11,20 @@
 	<context:annotation-config/>
 	<context:component-scan base-package="mm"></context:component-scan>
 	
-	<!-- @Component -->
+	<!-- @Component @Controller @Service @Repository -->
 
+	<!-- 
+		DataSource => 데이터베이스 연결
+		JdbcTempleate => Dao 설정
+		SessionFactory => myBatis
+	 -->
 
-	<bean id="memberDao" class="mm.dao.MemberDao">
+	<!-- <bean id="memberDao" class="mm.dao.MemberDao">
 		<qualifier value="md"/>
 	</bean>
-	<bean id="guestDao" class="mm.dao.GuestDao">
+	<bean id="guestDao" class="mm.dao.GuestDao" name="guestDao">
 		<qualifier value="gdao"/>
-	</bean>
+	</bean> -->
 	<!-- <bean id="regService" class="mm.service.MemberRegService2" />
 	<bean id="changeService" class="mm.service.ChangePasswordService2" /> -->
 
