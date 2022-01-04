@@ -10,10 +10,10 @@
 
 	<h1>로그인</h1>
 	<h3>${title}</h3>
-	<form method="post">
+	<form action="${pageContext.request.contextPath}/getParam3" method="post">
 		아이디 <input type="text" name="uid">
 		비밀번호 <input type="password" name="pw">
-		<input type="submit" value="쿼리 전송">
+		<input type="submit">
 	</form>
 
 </body>
