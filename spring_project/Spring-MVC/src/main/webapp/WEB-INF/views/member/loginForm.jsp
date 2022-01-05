@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>로그인</title>
 </head>
 <body>
 
-	<h1>회원가입 폼</h1>
+	<h1>로그인 폼</h1>
 	<hr>
 	<form method="post">
-	
+	<input type="hidden" name="url" value="${url}">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -22,25 +22,14 @@
 				<td> <input type="password" name="pw"></td>
 			</tr>
 			<tr>
-				<td>이름</td>
-				<td> <input type="text" name="uname"></td>
-			</tr>
-			<tr>
-				<td>사진</td>
-				<td> <input type="file" name="photo"></td>
-			</tr>
-			<tr>
 				<td></td>
 				<td>
-					<input type="submit" value="회원가입">
-					<input type="reset">
+					<input type="submit" value="로그인">
 				</td>
 			</tr>
 		</table>
 	
 	</form>
-	
-	<a href="login">로그인</a>
 
 </body>
 </html>

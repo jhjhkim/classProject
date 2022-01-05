@@ -22,6 +22,9 @@
 		<li><a href="${pageContext.request.contextPath}/member/reg">/member/reg</a></li>
 		<li><a href="${pageContext.request.contextPath}/order/order">/order/order</a></li>
 		<li><a href="${pageContext.request.contextPath}/cookie/make">/cookie/make</a></li>
+		<li><a href="${pageContext.request.contextPath}/header/check">/header/check</a></li>
+		<li><a href="${pageContext.request.contextPath}/return/test1">/return/test1</a></li>
+		<li><a href="${pageContext.request.contextPath}/member/login">/member/login</a></li>
 	</ul>
 
 </body>
