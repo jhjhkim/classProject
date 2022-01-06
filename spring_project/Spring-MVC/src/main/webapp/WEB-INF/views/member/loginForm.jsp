@@ -11,7 +11,7 @@
 	<h1>로그인 폼</h1>
 	<hr>
 	<form method="post">
-	<input type="hidden" name="url" value="${url}">
+	<input type="hidden" name="rurl" value="${url}">
 		<table>
 			<tr>
 				<td>아이디</td>
