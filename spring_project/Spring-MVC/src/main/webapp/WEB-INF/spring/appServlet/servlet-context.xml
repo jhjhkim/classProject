@@ -35,6 +35,33 @@
 	
 	<!-- <beans:bean id="helloService" class="com.bitcamp.mvc.HelloService"/> -->
 	
+	<beans:bean id="authCheckInterceptor"
+				class="com.bitcamp.mvc.interceptor.AuthCheckInterceptor"
+	/>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/mypage/**"/>
+			<beans:bean class="com.bitcamp.mvc.interceptor.TestInterceptor1"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/mypage/**"/>
+			<beans:bean class="com.bitcamp.mvc.interceptor.TestInterceptor2"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/mypage/**"/>
+			<beans:bean class="com.bitcamp.mvc.interceptor.TestInterceptor3"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/mypage/**"/>
+			<exclude-mapping path="/mypage/help/**" />
+			<beans:ref bean="authCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="com.bitcamp.mvc" />
 	
 </beans:beans>
