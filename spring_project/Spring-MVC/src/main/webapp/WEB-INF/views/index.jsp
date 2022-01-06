@@ -26,6 +26,9 @@
 		<li><a href="${pageContext.request.contextPath}/return/test1">/return/test1</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/login">/member/login</a></li>
 		<li><a href="${pageContext.request.contextPath}/report/form">/report/form</a></li>
+		<li><a href="${pageContext.request.contextPath}/names/test/0">/names/test/0</a></li>
+		<li><a href="${pageContext.request.contextPath}/names/cool/1">/names/cool/1</a></li>
+		<li><a href="${pageContext.request.contextPath}/names/hot//2">/names/hot/2</a></li>
 	</ul>
 
 </body>
