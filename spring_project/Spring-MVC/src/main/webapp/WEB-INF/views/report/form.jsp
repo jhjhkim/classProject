@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리포트 등록</title>
+</head>
+<body>
+
+	<h1>리포트 등록 : @RequestParam 이용</h1>
+	<hr>
+	
+	<!-- action="/mvc/report/submit1" -->
+	<form action="submit1" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>학번</td>
+				<td><input type="text" name="sno"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="sname"></td>
+			</tr>
+			<tr>
+				<td>리포트 파일</td>
+				<td><input type="file" name="report"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="리포트 제출"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

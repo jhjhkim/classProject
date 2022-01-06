@@ -25,6 +25,7 @@
 		<li><a href="${pageContext.request.contextPath}/header/check">/header/check</a></li>
 		<li><a href="${pageContext.request.contextPath}/return/test1">/return/test1</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/login">/member/login</a></li>
+		<li><a href="${pageContext.request.contextPath}/report/form">/report/form</a></li>
 	</ul>
 
 </body>
