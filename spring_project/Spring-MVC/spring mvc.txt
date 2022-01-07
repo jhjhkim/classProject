@@ -1,9 +1,11 @@
-1. Java 버전 1.8로 변경
-  pom.xml - 11, 141, 142 -> 1.8
+생성 : Spring legacy -> template에서 spring mvc 선택
+
+1. Build Path - Java 버전 1.8로 변경 (altanate 혹은 workspace default)
   properties -> Java Compiler - JDK Compiler 1.8
   Project Facet -> Java 1.8
+  pom.xml - properties 안의 java-version(11), maven-compiler-plugin(141, 142) -> 1.8
 
-2. springframework 4.3.10.RELEASE 로 변경
+2. springframework-version 4.3.10.RELEASE 로 변경
   pom.xml - 12
 
 3. encodingFilter 추가
