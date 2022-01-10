@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bitcamp.op.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.dao.MemberDao;
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
@@ -20,20 +21,24 @@ import com.bitcamp.op.member.exception.LoginInvalidException;
 @Service
 public class MemberLoginService {
 
+	//@Autowired
+	//private MemberDao dao;
+	
 	@Autowired
-	private MemberDao dao;
+	private JdbcTemplateMemberDao dao;
 
 	public String login(MemberLoginRequest loginRequest, HttpSession session, HttpServletResponse response)
 			throws Exception {
 
 		String viewName = null;
-		Connection conn = null;
-		Member member = null;
+		//Connection conn = null;
+		//Member member = null;
 
-		try {
-			conn = ConnectionProvider.getConnection();
+		//try {
+			//conn = ConnectionProvider.getConnection();
 
-			member = dao.selectByIdPw(conn, loginRequest.getUserid(), loginRequest.getPw());
+			//member = dao.selectByIdPw(conn, loginRequest.getUserid(), loginRequest.getPw());
+			Member member = dao.selectByIdPw(loginRequest.getUserid(), loginRequest.getPw());
 
 			if (member == null) {
 				throw new LoginInvalidException("아이디 또는 비밀번호가 틀립니다.");
@@ -55,9 +60,9 @@ public class MemberLoginService {
 				viewName = "redirect:/";
 			}
 			
-		} finally {
-			JdbcUtil.close(conn);
-		}
+		//} finally {
+		//	  JdbcUtil.close(conn);
+		//}
 
 		return viewName;
 	}
