@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bitcamp.op.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.dao.MemberDao;
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
@@ -18,8 +19,11 @@ import com.bitcamp.op.member.domain.MemberRegRequest;
 @Service
 public class MemberRegService {
 
+	//@Autowired
+	//private MemberDao dao;
+	
 	@Autowired
-	private MemberDao dao;
+	private JdbcTemplateMemberDao dao;
 	
 	public int insertMember(MemberRegRequest regRequest, HttpServletRequest request) throws IllegalStateException, IOException, SQLException {
 		
@@ -49,13 +53,21 @@ public class MemberRegService {
 		}
 		
 		// DAO 를 이용해서 데이터베이스 처리
-		Connection conn = null;
+		//Connection conn = null;
 		
 		try {
-			conn = ConnectionProvider.getConnection();
-			resultCnt = dao.insertMember(conn, regRequest);
+			//conn = ConnectionProvider.getConnection();
+			//resultCnt = dao.insertMember(conn, regRequest);
 			
-		} catch (SQLException e) {
+			System.out.println("idx => " + regRequest.getIdx());
+			
+			//resultCnt = dao.insertMember(regRequest);
+			resultCnt = dao.insert(regRequest);
+			
+			System.out.println("idx => " + regRequest.getIdx());
+			// 하위 테이블의 외래키로 사용해서 insert 가능
+			
+		} catch (Exception e) {
 			// 파일이 저장된 후 DB 관련 예외가 발생했을 때 : 저장했던 파일을 삭제
 			if(newFile != null && newFile.exists()) {
 				newFile.delete();
@@ -63,8 +75,8 @@ public class MemberRegService {
 			e.printStackTrace();
 			throw e;
 			
-		} finally {
-			JdbcUtil.close(conn);
+		//} finally {
+		//	JdbcUtil.close(conn);
 		}		
 		
 		return resultCnt;
