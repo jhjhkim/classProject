@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 interface의 전체 이름을 기입 -->
+<mapper namespace="com.bitcamp.op.member.dao.MemberDao">
+
+	<!-- interface의 추상메소드 이름을 id의 속성값으로 지정해주어야 한다. -->
+	<!-- <select id="selectByIdPw"
+			parameterType="com.bitcamp.op.member.domain.LoginParams"
+			resultType="com.bitcamp.op.member.domain.Member"> -->
+	<select id="selectByIdPw"
+			resultType="com.bitcamp.op.member.domain.Member">
+	<!-- 파라미터의 값의 구분은 매개변수 순서에 따라 구분 -->
+	select * from member where userid=#{param1} and password=#{param2}
+	<!-- select * from member where password=#{param2} and userid=#{param1} -->
+	</select>
+
+</mapper>
