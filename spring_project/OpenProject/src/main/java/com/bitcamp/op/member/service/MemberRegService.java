@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
+import com.bitcamp.op.member.dao.mybatisMemberDao;
 import com.bitcamp.op.member.domain.MemberRegRequest;
 
 @Service
@@ -18,8 +19,11 @@ public class MemberRegService {
 	//@Autowired
 	//private MemberDao dao;
 	
+	//@Autowired
+	//private JdbcTemplateMemberDao dao;
+	
 	@Autowired
-	private JdbcTemplateMemberDao dao;
+	private mybatisMemberDao dao;
 	
 	public int insertMember(MemberRegRequest regRequest, HttpServletRequest request) throws IllegalStateException, IOException, SQLException {
 		

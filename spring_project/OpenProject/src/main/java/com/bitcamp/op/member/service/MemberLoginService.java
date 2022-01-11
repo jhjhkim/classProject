@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
+import com.bitcamp.op.member.dao.mybatisMemberDao;
 import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.MemberLoginRequest;
 import com.bitcamp.op.member.exception.LoginInvalidException;
@@ -18,8 +19,11 @@ public class MemberLoginService {
 	//@Autowired
 	//private MemberDao dao;
 	
+	//@Autowired
+	//private JdbcTemplateMemberDao dao;
+	
 	@Autowired
-	private JdbcTemplateMemberDao dao;
+	private mybatisMemberDao dao;
 
 	public String login(MemberLoginRequest loginRequest, HttpSession session, HttpServletResponse response)
 			throws Exception {
@@ -32,7 +36,8 @@ public class MemberLoginService {
 			//conn = ConnectionProvider.getConnection();
 
 			//member = dao.selectByIdPw(conn, loginRequest.getUserid(), loginRequest.getPw());
-			Member member = dao.selectByIdPw(loginRequest.getUserid(), loginRequest.getPw());
+			//Member member = dao.selectByIdPw(loginRequest.getUserid(), loginRequest.getPw());
+			Member member = dao.selectByIdPw(loginRequest.getLoginParams());
 
 			if (member == null) {
 				throw new LoginInvalidException("아이디 또는 비밀번호가 틀립니다.");

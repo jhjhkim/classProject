@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav>
 	<ul>
+		<li><a href="${pageContext.request.contextPath}">HOME</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/reg">회원가입</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/manager/list">회원 리스트</a></li>
 		<li><a href="${pageContext.request.contextPath}/member/my/mypage">마이페이지</a></li>

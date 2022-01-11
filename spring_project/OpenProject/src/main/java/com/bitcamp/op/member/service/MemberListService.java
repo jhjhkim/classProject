@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
+import com.bitcamp.op.member.dao.mybatisMemberDao;
 import com.bitcamp.op.member.domain.ListPageView;
 import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.SearchParams;
 
 @Service
 public class MemberListService {
@@ -16,8 +18,11 @@ public class MemberListService {
 	//@Autowired
 	//private MemberDao dao;
 	
+	//@Autowired
+	//private JdbcTemplateMemberDao dao;
+	
 	@Autowired
-	private JdbcTemplateMemberDao dao;
+	private mybatisMemberDao dao;
 	
 	private final int COUNT_PER_PAGE = 3;
 	
@@ -36,7 +41,7 @@ public class MemberListService {
 			int currentPage = pageNum;
 			
 			int index = (currentPage-1)*COUNT_PER_PAGE;
-			List<Member> list = dao.selectList(index, COUNT_PER_PAGE);
+			List<Member> list = dao.selectList(new SearchParams(index, COUNT_PER_PAGE));
 			
 			view = new ListPageView(totalCount, pageNum, COUNT_PER_PAGE, list);
 		
