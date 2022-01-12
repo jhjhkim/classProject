@@ -1,6 +1,7 @@
 package com.bitcamp.op.member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bitcamp.op.member.domain.LoginParams;
 import com.bitcamp.op.member.domain.Member;
@@ -13,15 +14,18 @@ public interface MemberDao {
 	//public Member selectByIdPw(LoginParams params);
 	public Member selectByIdPw(String userId, String pw);
 	
-	public int selectTotalCount();
+	//public int selectTotalCount();
+	public int selectTotalCount(Map<String, String> searchMap);
 	
-	//public List<Member> selectList(SearchParams params);
-	public List<Member> selectList(int index, int count);
+	public List<Member> selectList(SearchParams params);
+	//public List<Member> selectList(int index, int count);
 	
 	public int insertMember(MemberRegRequest regRequest);
 	
 	public Member selectByIdx(int idx);
 	
 	public Member2 selectByIdx2(int idx);
+
+	public int deleteByIdx(int memberIdx);
 	
 }

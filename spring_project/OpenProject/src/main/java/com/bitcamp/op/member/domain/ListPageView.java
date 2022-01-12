@@ -21,7 +21,7 @@ public class ListPageView {
 	private void calPageTotalCount() {
 		
 		pageTotalCount = totalCount / countPerPage;
-		pageTotalCount = totalCount%countPerPage>0 ? pageTotalCount++ : pageTotalCount;
+		pageTotalCount = totalCount%countPerPage>0 ? ++pageTotalCount : pageTotalCount;
 		
 	}
 
