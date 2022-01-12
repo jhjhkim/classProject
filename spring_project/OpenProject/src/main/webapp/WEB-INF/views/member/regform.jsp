@@ -43,7 +43,7 @@
 		$('#userid').focusout(function(){
 					
 			$.ajax({
-				url : 'checkid.do',
+				url : 'checkid',
 				type : 'get',
 				data : {
 					userid : $('#userid').val()

@@ -1,5 +1,7 @@
 package com.bitcamp.op.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +15,13 @@ public class MemberDeleteController {
 	@Autowired
 	private MemberDeleteService deleteService;
 	
-	@RequestMapping("/member/delete")
+	@RequestMapping("/member/manager/delete")
 	public String deleteMember(
-			@RequestParam("idx") int idx
+			@RequestParam("idx") int idx,
+			HttpServletRequest request
 			) {
 		
-		deleteService.deleteMember(idx);
+		deleteService.deleteMember(idx, request);
 		
 		return "redirect:/member/manager/list";
 	}

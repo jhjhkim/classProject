@@ -3,6 +3,7 @@ package com.bitcamp.op.member.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.bitcamp.op.member.domain.EditRequest;
 import com.bitcamp.op.member.domain.LoginParams;
 import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.Member2;
@@ -27,5 +28,7 @@ public interface MemberDao {
 	public Member2 selectByIdx2(int idx);
 
 	public int deleteByIdx(int memberIdx);
+
+	public int editMember(EditRequest editRequest);
 	
 }
