@@ -2,6 +2,10 @@ package com.bitcamp.mvc.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class GuestMessage {
 	
 	private int idx;
@@ -16,6 +20,8 @@ public class GuestMessage {
 		this.date = date;
 	}
 
+	// 응답결과에서 제외
+	@JsonIgnore
 	public int getIdx() {
 		return idx;
 	}
@@ -32,6 +38,7 @@ public class GuestMessage {
 		this.message = message;
 	}
 
+	@JsonFormat(shape = Shape.STRING)
 	public Date getDate() {
 		return date;
 	}
