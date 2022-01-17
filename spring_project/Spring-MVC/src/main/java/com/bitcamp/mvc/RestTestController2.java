@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitcamp.mvc.domain.OrderItem;
@@ -48,6 +51,17 @@ public class RestTestController2 {
 		
 		return map;
 		
+	}
+	
+	@PostMapping("/orderitem")
+	@ResponseBody
+	public OrderItem getOrderItem(
+			@RequestBody OrderItem item
+			) {
+		
+		System.out.println(item);
+		
+		return item;
 	}
 	
 }
