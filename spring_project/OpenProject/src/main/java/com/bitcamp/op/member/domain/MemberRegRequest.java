@@ -10,7 +10,7 @@ public class MemberRegRequest {
 	private String username;
 	private MultipartFile photo;
 	private String fileName;
-	
+
 	public String getUserid() {
 		return userid;
 	}

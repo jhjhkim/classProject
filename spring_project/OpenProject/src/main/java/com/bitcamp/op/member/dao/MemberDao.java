@@ -15,6 +15,8 @@ public interface MemberDao {
 	//public Member selectByIdPw(LoginParams params);
 	public Member selectByIdPw(String userId, String pw);
 	
+	public Member selectById(String userId);
+	
 	//public int selectTotalCount();
 	public int selectTotalCount(Map<String, String> searchMap);
 	
@@ -30,5 +32,7 @@ public interface MemberDao {
 	public int deleteByIdx(int memberIdx);
 
 	public int editMember(EditRequest editRequest);
+
+	public int selectCountByUserId(String userId);
 	
 }

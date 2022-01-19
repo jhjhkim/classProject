@@ -26,6 +26,13 @@
 		select * from member where userid=#{param1} and password=#{param2}
 		<!-- select * from member where password=#{param2} and userid=#{param1} -->
 	</select>
+	
+	
+	<select id="selectById"
+		resultType="com.bitcamp.op.member.domain.Member">
+		select * from member where userid=#{userId}
+	</select>
+	
 
 	<select id="selectTotalCount"
 			parameterType="hashMap"
@@ -122,5 +129,13 @@
 		where idx=#{idx}
 	
 	</update>
+	
+	<select id="selectCountByUserId"
+			resultType="int">
+
+		select count(*) from member where userid=#{userId}
+	
+	</select>
+	
 
 </mapper>
