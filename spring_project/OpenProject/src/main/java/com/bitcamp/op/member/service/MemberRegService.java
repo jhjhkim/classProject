@@ -37,6 +37,10 @@ public class MemberRegService {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
+	// 메일 발송
+	@Autowired
+	private MailSenderService senderService;
+	
 	public int insertMember(MemberRegRequest regRequest, HttpServletRequest request) throws IllegalStateException, IOException, SQLException {
 		
 		int resultCnt = 0;
@@ -91,6 +95,13 @@ public class MemberRegService {
 			
 			System.out.println("idx => " + regRequest.getIdx());
 			// 하위 테이블의 외래키로 사용해서 insert 가능
+			
+			// 메일 발송
+			if(senderService.send(regRequest.getUserid(), regRequest.getUsername())>0) {
+				System.out.println("메일발송 완료");
+			} else {
+				System.out.println("메일발송 실패!");
+			}
 			
 		} catch (Exception e) {
 			// 파일이 저장된 후 DB 관련 예외가 발생했을 때 : 저장했던 파일을 삭제
