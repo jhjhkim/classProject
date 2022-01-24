@@ -9,10 +9,11 @@
 	<bean id="dataSource"
 		  class="com.zaxxer.hikari.HikariDataSource"
 		  p:driverClassName="com.mysql.cj.jdbc.Driver"
-		  p:jdbcUrl="jdbc:mysql://localhost:3306/project?serverTimezone=UTC"
+		  p:jdbcUrl="jdbc:mysql://database-op-mysql.cuufuhkkpjmd.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=UTC"
 		  p:username="bit"
 		  p:password="bit"
 	/>
+	<!-- p:jdbcUrl="jdbc:mysql://localhost:3306/project?serverTimezone=UTC" -->
 
 	<!-- JdbcTemplate 등록 -->
 	<bean id="jdbcTemplate"
@@ -24,7 +25,7 @@
 	<bean id="sqlSessionFactory"
 		  class="org.mybatis.spring.SqlSessionFactoryBean"
 		  p:dataSource-ref="dataSource"
-		  p:mapperLocations="classpath:com/bitcamp/op/member/dao/mapper/*.xml"
+		  p:mapperLocations="WEB-INF/mybatis/mapper/*.xml"
 	/>
 	
 	<bean id="sqlSession"
@@ -32,6 +33,4 @@
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
 		  
-
-
 </beans>
