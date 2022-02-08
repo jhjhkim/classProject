@@ -1,0 +1,12 @@
+server:
+  port: 8084
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project?servertimezone=UTC
+    username: bit
+    password: bit
+
+mybatis:
+  mapper-locations: com/example/demo/member/mapper/*.xml
