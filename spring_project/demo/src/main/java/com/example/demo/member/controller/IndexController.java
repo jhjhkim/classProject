@@ -1,17 +1,14 @@
 package com.example.demo.member.controller;
 
-import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.member.domain.Member;
 import com.example.demo.member.mapper.MemberDao;
 
-@RestController
+@Controller
 public class IndexController {
 
 	private MemberDao dao;
@@ -20,17 +17,20 @@ public class IndexController {
 	private SqlSessionTemplate template;
 	
 	@RequestMapping("/")
-	@ResponseBody
 	public String getIndex() {
-		return "INDEX Page";
+		//return "INDEX Page";
+		return "index";
 	}
 	
 	@RequestMapping("/members")
-	@ResponseBody
-	public List<Member> getList(){
+	public String getList(
+			Model model
+			){
 		
-		return template.getMapper(MemberDao.class).selectList();
+		model.addAttribute("memberList", template.getMapper(MemberDao.class).selectList());
 		
+		//return template.getMapper(MemberDao.class).selectList();
+		return "member/list";
 	}
 	
 }
